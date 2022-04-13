@@ -1,7 +1,7 @@
 name: hucel_core
 description: This My Best Core Components
 version: 0.0.2
-homepage:
+homepage: https://github.com/HalilUcel14/hucel_core_packages.git
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
