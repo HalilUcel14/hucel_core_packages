@@ -16,7 +16,7 @@ export 'src/base/base_view_model.dart';
 // ###---< constants >---###
 export 'src/constants/app_constants.dart';
 export 'src/constants/file_constants.dart';
-export 'src/constants./input_constants.dart';
+export 'src/constants/input_constants.dart';
 export 'src/constants/navigation_routes.dart';
 export 'src/constants/regexp_constants.dart';
 export 'src/constants/responsivity_constants.dart';
