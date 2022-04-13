@@ -5,9 +5,9 @@ import '../../interface/i_navigation_service.dart';
 class NavigationService implements INavigationService {
   static NavigationService? _instance;
 
-  static NavigationService? get instance {
+  static NavigationService get instance {
     _instance ??= NavigationService._init();
-    return _instance;
+    return _instance!;
   }
 
   NavigationService._init();

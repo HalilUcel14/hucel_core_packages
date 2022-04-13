@@ -14,7 +14,11 @@ class MyTextTheme {
   Color kTextColor = const Color(0xFF757575);
   String defaultFontFamily = "Muli";
 //
-  TextTheme theme({Color? textColor, String? fontFamily}) => TextTheme(
+  TextTheme theme({
+    Color? textColor,
+    String? fontFamily,
+  }) =>
+      TextTheme(
         headline1: TextStyle(
           color: textColor ?? kTextColor,
           fontFamily: fontFamily ?? defaultFontFamily,
