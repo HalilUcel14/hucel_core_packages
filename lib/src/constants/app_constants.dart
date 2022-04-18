@@ -9,4 +9,6 @@ class AppConstants {
 
   static const String ipadType = "ipad";
   static const String whatsAppPrefix = 'whatsapp://send?text=';
+
+  static const String twitterLoginAdd = "hucel_twitter_login_add";
 }

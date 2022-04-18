@@ -58,6 +58,7 @@ export 'src/init/theme/theme_notifier.dart';
 
 // ###---< init - utility >---###
 export 'src/init/utility/custom_logger.dart';
+export 'src/init/utility/show_snackbar.dart';
 export 'src/init/utility/device_utility.dart';
 export 'src/init/utility/page_animation/slider_route.dart';
 
@@ -68,7 +69,8 @@ export 'src/interface/i_navigation_service.dart';
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
 
-// ###---< Network >---###
+// ###---< Firebase >---###
+export 'src/feature/firebase/authentication/authentication_helper.dart';
 
 // ###---< Widget >---###
 export 'src/widget/dynamic_fit_text.dart';

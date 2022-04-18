@@ -10,6 +10,20 @@
 
 
 
+### Show Snackbar Utils
+Ne İşe Yarar: Alt Pencere olarak uygulamada mesaj gösterir.
+
+```dart
+return Scaffold(
+      body: Column(
+        children: const [
+          AppUtils.snackBarShow(context,
+          text: "Email ile Girişte Hata Oluştu ${e.message}");
+        ],
+      ),
+    );
+```
+
 ### Random Color Container  Widget 
 Ne İşe Yarar: Tüm View Modelleri tek bir üst sınıftan alarak ortaklaştırmaya ve bazı özelliklerin zorunlu kılınmasına yardımcı olacak.
 
