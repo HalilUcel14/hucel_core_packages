@@ -1,19 +1,19 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-// import '../../constants/enums/locale_keys_enum.dart';
+// import '../../constants/enums/Shared_keys_enum.dart';
 //
 enum PreferencesKeys {
   token,
   onboard,
 }
 
-class LocaleManager {
-  static final LocaleManager _instance = LocaleManager._init();
+class SharedManager {
+  static final SharedManager _instance = SharedManager._init();
 
   SharedPreferences? _preferences;
-  static LocaleManager get instance => _instance;
+  static SharedManager get instance => _instance;
 
-  LocaleManager._init() {
+  SharedManager._init() {
     SharedPreferences.getInstance().then((value) {
       _preferences = value;
     });

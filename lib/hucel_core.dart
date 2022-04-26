@@ -39,7 +39,7 @@ export 'src/extension/string_extension.dart';
 export 'src/extension/widget_extension.dart';
 
 // ###---< init - cache >---###
-export 'src/init/cache/locale_manager_shared/locale_manager.dart';
+export 'src/init/cache/locale_manager_shared/shared_manager.dart';
 export 'src/init/cache/file/locale_file.dart';
 
 // ###---< init - navigation >---###

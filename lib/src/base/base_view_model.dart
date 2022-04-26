@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../init/cache/locale_manager_shared/locale_manager.dart';
-import '../init/navigation/navigation_service.dart';
+import '../init/cache/locale_manager_shared/shared_manager.dart';
 
 abstract class BaseViewModel {
   BuildContext? context;
-  LocaleManager? localeManager = LocaleManager.instance;
-  NavigationService? navigationService = NavigationService.instance;
+  SharedManager? localeManager = SharedManager.instance;
 
   void setContext(BuildContext context);
 

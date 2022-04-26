@@ -6,11 +6,7 @@ import 'package:hucel_core/hucel_core.dart';
 abstract class BaseState<T extends StatefulWidget> extends State<T> {
   final LocaleFile _localeFile = LocaleFile();
 
-  final LocaleManager _localeManager = LocaleManager.instance;
-
-  final NavigationRoute _navigationRoute = NavigationRoute.instance;
-
-  final NavigationService _navigationService = NavigationService.instance;
+  final SharedManager _sharedManager = SharedManager.instance;
 
   final MyTextTheme _myTextTheme = MyTextTheme.instance;
 
@@ -25,11 +21,7 @@ abstract class BaseStateless extends StatelessWidget {
 
   final LocaleFile _localeFile = LocaleFile();
 
-  final LocaleManager _localeManager = LocaleManager.instance;
-
-  final NavigationRoute _navigationRoute = NavigationRoute.instance;
-
-  final NavigationService _navigationService = NavigationService.instance;
+  final SharedManager _sharedManager = SharedManager.instance;
 
   final MyTextTheme _myTextTheme = MyTextTheme.instance;
 }

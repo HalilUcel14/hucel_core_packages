@@ -39,7 +39,9 @@ class FirebaseEmailPassAuthHelper extends FirebaseAuthHelper {
           text: "Email ile Girişte Hata Oluştu ${e.message}");
     }
   }
+}
 
+class FirebaseAuthSignOutHelper extends FirebaseAuthHelper {
   /// Sign Out Method
   Future signOut() async {
     await auth.signOut();
