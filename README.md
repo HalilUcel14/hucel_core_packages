@@ -9,6 +9,23 @@
 ## Linkedin : https://www.linkedin.com/in/halilucel/
 
 
+### Firebase Helper
+Ne İşe Yarar: Firebase Auth Code Kullanım.
+
+```dart
+    try {
+      await FirebaseEmailPassAuthHelper().signIn(
+        context,
+        email: _appController.emailController.text.trim(),
+        password: _appController.passwordController.text.trim(),
+      );
+
+      _isLogged(false);
+    } on FirebaseAuthException {
+      _isLogged(true);
+      throw Exception("Firebase Hata");
+    }
+```
 
 ### Show Snackbar Utils
 Ne İşe Yarar: Alt Pencere olarak uygulamada mesaj gösterir.
