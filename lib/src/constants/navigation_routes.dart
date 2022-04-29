@@ -6,17 +6,26 @@ class NavigationConstants {
   }
 
   NavigationConstants._init();
-
+  //
+  static const testView = '/TestView';
+  //
   static const baseRoute = "/";
-  static const homeView = "/Home";
-  static const onBoard = "/OnBoard";
-  static const signIn = "/SignIn";
   static const splash = "/Splash";
+  static const onBoard = "/OnBoard";
+  //
+  static const signIn = "/SignIn";
   static const signUp = "/SignUp";
   static const forgot = "/Forgot";
-  static const testView = '/TestView';
+  //
+  static const homeView = "/Home";
   static const product = '/Product';
   static const details = '/Details';
+  //
   static const profile = '/Profile';
   static const settings = '/Settings';
+  //
+}
+
+extension on NavigationConstants {
+  static const hello = '/Hello';
 }

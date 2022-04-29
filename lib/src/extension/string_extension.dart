@@ -1,14 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:hucel_core/src/constants/app_constants.dart';
+import 'package:hucel_core/hucel_core.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../constants/input_constants.dart';
-import '../constants/regexp_constants.dart';
-import '../exception/page_info_exceptions.dart';
-import '../init/utility/device_utility.dart';
 
 extension StringExtension on String {
   String get tlMoney => "$this TL";
@@ -48,8 +43,14 @@ extension StringValidator on String {
   bool get isValidEmail => isNotNullAndNotEmpty
       ? RegExp(RegExpConstants.instance.emailRegexp).hasMatch(this)
       : false;
-  bool get isValidPassword => isNotNullAndNotEmpty
-      ? RegExp(RegExpConstants.instance.passwordRegexp).hasMatch(this)
+  bool get isValidLowPassword => isNotNullAndNotEmpty
+      ? RegExp(RegExpConstants.instance.passwordLowRegexp).hasMatch(this)
+      : false;
+  bool get isValidMediumPassword => isNotNullAndNotEmpty
+      ? RegExp(RegExpConstants.instance.passwordMediumRegexp).hasMatch(this)
+      : false;
+  bool get isValidHardPassword => isNotNullAndNotEmpty
+      ? RegExp(RegExpConstants.instance.passwordHardRegexp).hasMatch(this)
       : false;
 }
 

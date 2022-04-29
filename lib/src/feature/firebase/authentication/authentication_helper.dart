@@ -5,7 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hucel_core/hucel_core.dart';
 import 'package:twitter_login/twitter_login.dart';
 
-import 'i_firebase_auth.dart';
+import '../../../interface/i_firebase_auth.dart';
 
 class FirebaseEmailPassAuthHelper extends FirebaseAuthHelper {
   get user => auth.currentUser;
