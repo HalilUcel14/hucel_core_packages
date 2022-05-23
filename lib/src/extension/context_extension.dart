@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:hucel_core/src/extension/int_extension.dart';
 
 import '../constants/responsivity_constants.dart';
-import '../init/theme/text_theme.dart';
+
 import '../init/utility/page_animation/slider_route.dart';
 import '../widget/space_sized_box.dart';
 
 extension ContextExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => MyTextTheme.instance.theme();
+
   TextTheme get primaryTextTheme => theme.primaryTextTheme;
   ColorScheme get colorSheme => theme.colorScheme;
 }

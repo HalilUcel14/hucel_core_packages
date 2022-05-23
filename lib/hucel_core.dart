@@ -46,16 +46,6 @@ export 'src/init/cache/file/locale_file.dart';
 export 'src/init/navigation/navigation_router.dart';
 export 'src/init/navigation/navigation_service.dart';
 
-// ###---< init - theme >---###
-export 'src/init/theme/theme_notifier.dart';
-export 'src/init/theme/text_theme.dart';
-export 'src/init/theme/provider_list.dart';
-
-// ###---< init - theme >---###
-export 'src/init/theme/provider_list.dart';
-export 'src/init/theme/text_theme.dart';
-export 'src/init/theme/theme_notifier.dart';
-
 // ###---< init - utility >---###
 export 'src/init/utility/custom_logger.dart';
 export 'src/init/utility/show_snackbar.dart';
@@ -65,6 +55,8 @@ export 'src/init/utility/page_animation/slider_route.dart';
 // ###---< İnterface >---###
 export 'src/interface/i_file_manager.dart';
 export 'src/interface/i_navigation_service.dart';
+export 'src/interface/i_firebase_auth.dart';
+export 'src/interface/i_theme_manager.dart';
 
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';

@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 enum PreferencesKeys {
   token,
   onboard,
+  profile,
+  remember,
 }
 
 class SharedManager {

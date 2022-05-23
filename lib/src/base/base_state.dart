@@ -8,8 +8,6 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
 
   final SharedManager _sharedManager = SharedManager.instance;
 
-  final MyTextTheme _myTextTheme = MyTextTheme.instance;
-
   ///
 
 }
@@ -22,6 +20,4 @@ abstract class BaseStateless extends StatelessWidget {
   final LocaleFile _localeFile = LocaleFile();
 
   final SharedManager _sharedManager = SharedManager.instance;
-
-  final MyTextTheme _myTextTheme = MyTextTheme.instance;
 }

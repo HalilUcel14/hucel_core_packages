@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hucel_core/hucel_core.dart';
 
 class ExpandedStreamBuilder extends Expanded {
   ExpandedStreamBuilder({

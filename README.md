@@ -9,6 +9,22 @@
 ## Linkedin : https://www.linkedin.com/in/halilucel/
 
 
+### IThemeManager
+Ne İşe Yarar: Tema Yönetimi için İnterface'dir. Provider ile Theme Yönetiminde kullanılması için yazıldı.
+
+```dart
+   import 'package:flutter/material.dart';
+
+    abstract class IThemeManager {
+      late ThemeData currentTheme;
+      late ThemeEnum currentThemeEnum;
+
+      void changeTheme(ThemeEnum themes);
+    }
+
+    enum ThemeEnum { LIGHT, DARK }
+```
+
 ### Stream Builder Helper
 Ne İşe Yarar: Stream Builder için Expand içerisinde Yerini Rahat bulabilmesini sağlama ve helper ile Gelen datayı daha iyi yönetme için kolaylık sağlar
 
