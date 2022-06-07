@@ -9,6 +9,29 @@
 ## Linkedin : https://www.linkedin.com/in/halilucel/
 
 
+### FireStore Get Download Url
+Ne İşe Yarar: Fire Store üzerine attığınız dosyaların indirme url linklerini getirir.
+
+```dart
+   @override
+  Widget build(BuildContext context) {
+    return ExpandedContainer(
+      child: FutureBuilder(
+        // 
+        future: FirestoreGetDownloadUrl().get(imgUrl),
+        //
+        builder: (context, AsyncSnapshot snapshot) {
+          return myStreamBuilderHelper(
+            // My Future or Stream Helper
+            snapshot: snapshot,
+            connectionDone: Image.network(snapshot.data.toString()),
+          );
+        },
+      ),
+    );
+  }
+```
+
 ### IThemeManager
 Ne İşe Yarar: Tema Yönetimi için İnterface'dir. Provider ile Theme Yönetiminde kullanılması için yazıldı.
 

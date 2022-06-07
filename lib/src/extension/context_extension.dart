@@ -28,6 +28,7 @@ extension MediaQueryExtension on BuildContext {
   //
   double get heightXS => height * 0.01;
   double get heightS => height * 0.02;
+  double get heightN => height * 0.03;
   double get heightM => height * 0.04;
   double get heightL => height * 0.06;
   double get heightXL => height * 0.08;
@@ -35,6 +36,7 @@ extension MediaQueryExtension on BuildContext {
   //
   double get widthXS => width * 0.01;
   double get widthS => width * 0.02;
+  double get widthN => width * 0.03;
   double get widthM => width * 0.04;
   double get widthL => width * 0.06;
   double get widthXL => width * 0.08;
@@ -83,38 +85,36 @@ extension DurationExtension on BuildContext {
   Duration get durationXS => const Duration(milliseconds: 200);
   Duration get durationS => const Duration(milliseconds: 300);
   Duration get durationM => const Duration(milliseconds: 500);
-  Duration get durationL => const Duration(milliseconds: 800);
+  Duration get durationL => const Duration(milliseconds: 750);
   Duration get durationXL => const Duration(seconds: 1);
   Duration get durationXXL => const Duration(seconds: 2);
 }
 
 extension PaddingExtension on BuildContext {
-  EdgeInsets get padAllLow => EdgeInsets.all(heightXS);
-  EdgeInsets get padAllNormaly => EdgeInsets.all(heightS);
-  EdgeInsets get padAllMedium => EdgeInsets.all(heightM);
-  EdgeInsets get padAllLarge => EdgeInsets.all(heightL);
-  EdgeInsets get padAllXLarge => EdgeInsets.all(heightXL);
-  EdgeInsets get padAllXXLarge => EdgeInsets.all(heightXXL);
+  EdgeInsets get padAllXS => EdgeInsets.all(heightXS);
+  EdgeInsets get padAllS => EdgeInsets.all(heightS);
+  EdgeInsets get padAllN => EdgeInsets.all(heightN);
+  EdgeInsets get padAllM => EdgeInsets.all(heightM);
+  EdgeInsets get padAllL => EdgeInsets.all(heightL);
+  EdgeInsets get padAllXL => EdgeInsets.all(heightXL);
+  EdgeInsets get padAllXXL => EdgeInsets.all(heightXXL);
   //
-  EdgeInsets get padHorizontalLow => EdgeInsets.symmetric(horizontal: heightXS);
-  EdgeInsets get padHorizontalNormaly =>
-      EdgeInsets.symmetric(horizontal: heightS);
-  EdgeInsets get padHorizontalMedium =>
-      EdgeInsets.symmetric(horizontal: heightM);
-  EdgeInsets get padHorizontalLarge =>
-      EdgeInsets.symmetric(horizontal: heightL);
-  EdgeInsets get padHorizontalXLarge =>
-      EdgeInsets.symmetric(horizontal: heightXL);
-  EdgeInsets get padHorizontalXXLarge =>
+  EdgeInsets get padHorizontalXS => EdgeInsets.symmetric(horizontal: heightXS);
+  EdgeInsets get padHorizontalS => EdgeInsets.symmetric(horizontal: heightS);
+  EdgeInsets get padHorizontalN => EdgeInsets.symmetric(horizontal: heightN);
+  EdgeInsets get padHorizontalM => EdgeInsets.symmetric(horizontal: heightM);
+  EdgeInsets get padHorizontalL => EdgeInsets.symmetric(horizontal: heightL);
+  EdgeInsets get padHorizontalXL => EdgeInsets.symmetric(horizontal: heightXL);
+  EdgeInsets get padHorizontalXXL =>
       EdgeInsets.symmetric(horizontal: heightXXL);
   //
-  EdgeInsets get padVerticalLow => EdgeInsets.symmetric(vertical: heightXS);
-  EdgeInsets get padVerticalNormaly => EdgeInsets.symmetric(vertical: heightS);
-  EdgeInsets get padVerticalMedium => EdgeInsets.symmetric(vertical: heightM);
-  EdgeInsets get padVerticalLarge => EdgeInsets.symmetric(vertical: heightL);
-  EdgeInsets get padVerticalXLarge => EdgeInsets.symmetric(vertical: heightXL);
-  EdgeInsets get padVerticalXXLarge =>
-      EdgeInsets.symmetric(vertical: heightXXL);
+  EdgeInsets get padVerticalXS => EdgeInsets.symmetric(vertical: heightXS);
+  EdgeInsets get padVerticalS => EdgeInsets.symmetric(vertical: heightS);
+  EdgeInsets get padVerticalN => EdgeInsets.symmetric(vertical: heightN);
+  EdgeInsets get padVerticalM => EdgeInsets.symmetric(vertical: heightM);
+  EdgeInsets get padVerticalL => EdgeInsets.symmetric(vertical: heightL);
+  EdgeInsets get padVerticalXL => EdgeInsets.symmetric(vertical: heightXL);
+  EdgeInsets get padVerticalXXL => EdgeInsets.symmetric(vertical: heightXXL);
 }
 
 extension SizedBoxExtension on BuildContext {
@@ -122,6 +122,8 @@ extension SizedBoxExtension on BuildContext {
       SpaceSizedWidhtBox(context: this, width: widthXS);
   Widget get emptySizedBoxWidthS =>
       SpaceSizedWidhtBox(context: this, width: widthS);
+  Widget get emptySizedBoxWidthN =>
+      SpaceSizedWidhtBox(context: this, width: widthN);
   Widget get emptySizedBoxWidthM =>
       SpaceSizedWidhtBox(context: this, width: widthM);
   Widget get emptySizedBoxWidthL =>
@@ -135,6 +137,8 @@ extension SizedBoxExtension on BuildContext {
       SpaceSizedHeightBox(context: this, height: heightXS);
   Widget get emptySizedBoxHeightS =>
       SpaceSizedHeightBox(context: this, height: heightS);
+  Widget get emptySizedBoxHeightN =>
+      SpaceSizedHeightBox(context: this, height: heightN);
   Widget get emptySizedBoxHeightM =>
       SpaceSizedHeightBox(context: this, height: heightM);
   Widget get emptySizedBoxHeightL =>
@@ -148,6 +152,7 @@ extension SizedBoxExtension on BuildContext {
 extension RadiusExtension on BuildContext {
   Radius get radiusXS => Radius.circular(widthXS);
   Radius get radiusS => Radius.circular(widthS);
+  Radius get radiusN => Radius.circular(widthN);
   Radius get radiusM => Radius.circular(widthM);
   Radius get radiusL => Radius.circular(widthL);
   Radius get radiusXL => Radius.circular(widthXL);
@@ -157,6 +162,7 @@ extension RadiusExtension on BuildContext {
 extension BorderExtension on BuildContext {
   BorderRadius get borderRadiusXS => BorderRadius.all(Radius.circular(widthXS));
   BorderRadius get borderRadiusS => BorderRadius.all(Radius.circular(widthS));
+  BorderRadius get borderRadiusN => BorderRadius.all(Radius.circular(widthN));
   BorderRadius get borderRadiusM => BorderRadius.all(Radius.circular(widthM));
   BorderRadius get borderRadiusL => BorderRadius.all(Radius.circular(widthL));
   BorderRadius get borderRadiusXL => BorderRadius.all(Radius.circular(widthXL));
