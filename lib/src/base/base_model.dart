@@ -1,9 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 abstract class BaseModel<T> {
-  Map<String, Object?> toJson();
-  T fromJson(Map<String, Object> json);
-  T fromDocumentSnapshot(DocumentSnapshot<Map<String, dynamic>> docs);
+  Map<String, dynamic?> toJson();
+  T fromJson(Map<String, dynamic> json);
 }
 
 //for Example
@@ -48,28 +45,6 @@ abstract class BaseModel<T> {
 //     };
 //   }
 
-//   fromDocumentSnapshot(DocumentSnapshot<Map<String, dynamic>> docs) {
-//     return Note(
-//       uuid: docs.id,
-//       colorId: docs.data()![Note.fireColorId],
-//       content: docs.data()![Note.fireNoteContent],
-//       createDate: docs.data()![Note.fireCreatingDate],
-//       title: docs.data()![Note.fireNoteTitle],
-//     );
-//   }
+//   
 // }
 
-// //List<Note> streamNote = [];
-// Firebase den gelen veriyi bir listeye almak.
-// Future<dynamic> noteListFirestore() async {
-//   QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
-//       .instance
-//       .collection(AppString.noteColleciton)
-//       .get();
-//   // return snapshot.docs
-//   //     .map((notes) => Note().fromDocumentSnapshot(docs))
-//   //     .toList();
-//   return snapshot.docs
-//       .map((docSnapshot) => Note().fromDocumentSnapshot(docSnapshot))
-//       .toList();
-// }

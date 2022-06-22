@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hucel_core/hucel_core.dart';
+import 'package:hucel_core/src/widget/error_snackbar.dart';
 import 'package:twitter_login/twitter_login.dart';
 
-import '../../../interface/i_firebase_auth.dart';
-
-class FirebaseEmailPassAuthHelper extends FirebaseAuthHelper {
+class FirebaseEmailPassAuthHelper extends IFirebaseAuthHelper {
   get user => auth.currentUser;
 
   /// Sign Up Method
-  Future signUp({required String email, required String password}) async {
+  Future signUp(BuildContext context,
+      {required String email, required String password}) async {
     try {
       await auth.createUserWithEmailAndPassword(
         email: email,
@@ -19,7 +19,27 @@ class FirebaseEmailPassAuthHelper extends FirebaseAuthHelper {
       );
       return null;
     } on FirebaseAuthException catch (e) {
-      return e.message;
+      if (e.code == 'weak-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          ErrorSnackbar(errorList: [
+            "The password provided is too weak.\n" + e.message.toString()
+          ]),
+        );
+      } else if (e.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          ErrorSnackbar(errorList: [
+            "The account already exists for that email.\n" +
+                e.message.toString()
+          ]),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        ErrorSnackbar(errorList: [
+          "This Error not on FirebaseAuthException, is Other Section \n" +
+              e.toString()
+        ]),
+      );
     }
   }
 
@@ -35,20 +55,38 @@ class FirebaseEmailPassAuthHelper extends FirebaseAuthHelper {
 
       ///
     } on FirebaseException catch (e) {
-      AppUtils.snackBarShow(context,
-          text: "Email ile Girişte Hata Oluştu ${e.message}");
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          ErrorSnackbar(errorList: [
+            "No user found for that email." + e.message.toString()
+          ]),
+        );
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          ErrorSnackbar(errorList: [
+            "Wrong password provided for that user." + e.message.toString()
+          ]),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        ErrorSnackbar(errorList: [
+          "This Error not on FirebaseAuthException, is Other Section \n" +
+              e.toString()
+        ]),
+      );
     }
   }
 }
 
-class FirebaseAuthSignOutHelper extends FirebaseAuthHelper {
+class FirebaseAuthSignOutHelper extends IFirebaseAuthHelper {
   /// Sign Out Method
   Future signOut() async {
     await auth.signOut();
   }
 }
 
-class FirebaseAnonymouslyAuthHelper extends FirebaseAuthHelper {
+class FirebaseAnonymouslyAuthHelper extends IFirebaseAuthHelper {
   void signInAnonymously(BuildContext context,
       {required String routeName}) async {
     try {
@@ -69,7 +107,7 @@ class FirebaseAnonymouslyAuthHelper extends FirebaseAuthHelper {
   }
 }
 
-class FirebaseSocialAuthHelper extends FirebaseAuthHelper {
+class FirebaseSocialAuthHelper extends IFirebaseAuthHelper {
   void signInWithGoogle(BuildContext context) async {
     try {
       // Trigger the authentication flow
