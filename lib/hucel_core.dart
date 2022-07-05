@@ -71,4 +71,5 @@ export 'src/widget/dynamic_fit_text.dart';
 export 'src/widget/random_color_container.dart';
 export 'src/widget/random_image.dart';
 export 'src/widget/space_sized_box.dart';
+export 'src/widget/error_snackbar.dart';
 export 'src/widget/stream_builder_helper.dart';

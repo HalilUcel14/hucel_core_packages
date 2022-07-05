@@ -48,19 +48,19 @@ class _SnackBarChild extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               errorList.length,
-              (index) => FittedBox(
-                child: Row(
-                  children: [
-                    Text(
+              (index) => Row(
+                children: [
+                  Expanded(
+                    child: Text(
                       errorList[index],
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: context.heightS * 0.9,
                       ),
                     ),
-                    SizedBox(height: context.heightN)
-                  ],
-                ),
+                  ),
+                  SizedBox(height: context.heightN)
+                ],
               ),
             ),
           ),

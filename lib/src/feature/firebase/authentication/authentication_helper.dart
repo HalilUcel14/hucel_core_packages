@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hucel_core/hucel_core.dart';
-import 'package:hucel_core/src/widget/error_snackbar.dart';
 import 'package:twitter_login/twitter_login.dart';
 
 class FirebaseEmailPassAuthHelper extends IFirebaseAuthHelper {
@@ -101,8 +100,9 @@ class FirebaseAnonymouslyAuthHelper extends IFirebaseAuthHelper {
 
       ///
     } on FirebaseAuthException catch (e) {
-      AppUtils.snackBarShow(context,
-          text: "Anonim Girişte Hata Oluştu ${e.message}");
+      ScaffoldMessenger.of(context).showSnackBar(
+        ErrorSnackbar(errorList: ["Anonim Giriş Hatası \n" + e.toString()]),
+      );
     }
   }
 }
@@ -128,8 +128,10 @@ class FirebaseSocialAuthHelper extends IFirebaseAuthHelper {
 
       ///
     } on FirebaseAuthException catch (e) {
-      AppUtils.snackBarShow(context,
-          text: "Google girişte hata alındı ${e.message}");
+      ScaffoldMessenger.of(context).showSnackBar(
+        ErrorSnackbar(
+            errorList: ["Google Giriş İçin Hatalı İşlem \n" + e.toString()]),
+      );
     }
   }
 
