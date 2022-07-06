@@ -23,6 +23,12 @@ extension MediaQueryExtension on BuildContext {
   double get width => size.width;
   double get height => size.height;
   //
+  double get longSize => width > height ? width : height;
+  double get shortSize => width < height ? width : height;
+
+  double dynamicShortSize(double value) => shortSize * value;
+  double dynamicLongSize(double value) => longSize * value;
+  //
   double dynamicHeight(double value) => height * value;
   double dynamicWidth(double value) => width * value;
   //
