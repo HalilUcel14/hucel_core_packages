@@ -5,6 +5,7 @@ import 'package:hucel_core/src/extension/int_extension.dart';
 
 import '../constants/responsivity_constants.dart';
 
+import '../init/cache/locale_manager_shared/shared_manager.dart';
 import '../init/utility/page_animation/slider_route.dart';
 import '../widget/space_sized_box.dart';
 
@@ -58,6 +59,8 @@ extension DeviceOSExtension on BuildContext {
   bool get isWindows => Platform.isWindows;
   bool get isLinux => Platform.isLinux;
   bool get isMacOS => Platform.isMacOS;
+  bool get isMobile => isAndroid && isIOS;
+  bool get isDesktopWeb => isWindows && isLinux && isMacOS;
 }
 
 extension OrientationExtension on BuildContext {
@@ -186,18 +189,29 @@ extension NavigationExtension on BuildContext {
     return null;
   }
 
-  Future<T?> navigateName<T>(String path, {Object? data}) async {
+  Future<T?> pushNamed<T>(String path, {Object? data}) async {
     return await navigation.pushNamed<T>(path, arguments: data);
   }
 
-  Future<T?> navigateToReset<T>(String path, {Object? data}) async {
+  Future<T?> pushNameAndRemoveUntil<T>(String path, {Object? data}) async {
     return await navigation.pushNamedAndRemoveUntil(path, (route) => false,
         arguments: data);
   }
 
-  Future<T?> navigateToPage<T>(Widget page,
+  Future<T?> push<T>(Widget page,
       {Object? extra, SlideType type = SlideType.defauld}) async {
     return await navigation
         .push(type.route(page, RouteSettings(arguments: extra)));
   }
+}
+
+extension SharedContextExtension on BuildContext {
+  SharedManager get sharedManager => SharedManager.instance;
+  //
+  String get _isOnboardShowed => '/OnboardShowTime';
+  //
+  bool get getOnboardFirstTimeShowed =>
+      sharedManager.getBoolPreferences(_isOnboardShowed);
+  Future<void> get setOnboardFirstTimeShowed =>
+      sharedManager.setBoolValue(_isOnboardShowed, true);
 }

@@ -20,6 +20,7 @@ export 'src/constants/input_constants.dart';
 export 'src/constants/navigation_routes.dart';
 export 'src/constants/regexp_constants.dart';
 export 'src/constants/responsivity_constants.dart';
+export 'src/constants/easy_locale_constants.dart';
 
 // ###---< exception >---###
 export 'src/exception/error_widget_builder.dart';
@@ -53,7 +54,9 @@ export 'src/init/utility/device_utility.dart';
 export 'src/init/utility/page_animation/slider_route.dart';
 // ###---< init - utility >---###
 export 'src/init/network/network_connectivity_manager.dart';
-
+// ###---< init - theme >---###
+export 'src/init/theme/theme_manager.dart';
+//
 // ###---< İnterface >---###
 export 'src/interface/i_file_manager.dart';
 export 'src/interface/i_navigation_service.dart';

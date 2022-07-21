@@ -1,3 +1,5 @@
+import 'dart:math';
+
 extension ListExtension on List? {
   bool get isNotNullorEmpty {
     if (this is List) {
@@ -8,4 +10,9 @@ extension ListExtension on List? {
   }
 
   bool get isNullOrEmpty => !isNotNullorEmpty;
+}
+
+extension RandomListed<T> on List<T> {
+  // Herhangi bir listeden random eleman dönderir
+  T get randomListData => this[Random().nextInt(length)];
 }
