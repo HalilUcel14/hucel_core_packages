@@ -1,13 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:hucel_core/src/extension/int_extension.dart';
 
-import '../constants/responsivity_constants.dart';
-
-import '../init/cache/locale_manager_shared/shared_manager.dart';
-import '../init/utility/page_animation/slider_route.dart';
-import '../widget/space_sized_box.dart';
+import '../../hucel_core.dart';
 
 extension ContextExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -214,4 +209,13 @@ extension SharedContextExtension on BuildContext {
       sharedManager.getBoolPreferences(_isOnboardShowed);
   Future<void> get setOnboardFirstTimeShowed =>
       sharedManager.setBoolValue(_isOnboardShowed, true);
+}
+
+extension SnackbarContextExtension on BuildContext {
+  ScaffoldFeatureController snackbar({required List<String> errorList}) =>
+      ScaffoldMessenger.of(this).showSnackBar(
+        ErrorSnackbars(
+          errorList: errorList,
+        ),
+      );
 }

@@ -8,6 +8,30 @@
 
 ## Linkedin : https://www.linkedin.com/in/halilucel/
 
+### Error SnackBar
+Ne İşe Yarar: Ekranda Error göstermek istediğiniz bilgi ve metinleri hoş bir imaj ile gösterir.
+
+```dart
+   @override
+  ElevatedButtonWithStadiumBorder(
+      child: Text(
+        _loginConstant.signInButton,
+        style: TextStyle(
+          fontSize: constraints.maxHeight * 0.05,
+        ),
+      ),
+      onPressed: () => context.snackbar(errorList: [
+        'bu bir test mesajıdır ...................aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        'bu bir test mesajıdır ...................',
+        'bu bir test mesajıdır ...................',
+        'bu bir test mesajıdır ...................',
+      ]), //viewModel.buttonPressed,
+      fixedSize: Size(
+        constraints.maxWidth * 0.3,
+        constraints.maxHeight * 0.13,
+      ),
+    );
+```
 
 ### FireStore Get Download Url
 Ne İşe Yarar: Fire Store üzerine attığınız dosyaların indirme url linklerini getirir.
