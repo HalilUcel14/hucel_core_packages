@@ -20,13 +20,13 @@ class FirebaseEmailPassAuthHelper extends IFirebaseAuthHelper {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
-          ErrorSnackbar(errorList: [
+          ErrorSnackbars(errorList: [
             "The password provided is too weak.\n" + e.message.toString()
           ]),
         );
       } else if (e.code == 'email-already-in-use') {
         ScaffoldMessenger.of(context).showSnackBar(
-          ErrorSnackbar(errorList: [
+          ErrorSnackbars(errorList: [
             "The account already exists for that email.\n" +
                 e.message.toString()
           ]),
@@ -34,7 +34,7 @@ class FirebaseEmailPassAuthHelper extends IFirebaseAuthHelper {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        ErrorSnackbar(errorList: [
+        ErrorSnackbars(errorList: [
           "This Error not on FirebaseAuthException, is Other Section \n" +
               e.toString()
         ]),
@@ -56,20 +56,20 @@ class FirebaseEmailPassAuthHelper extends IFirebaseAuthHelper {
     } on FirebaseException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
-          ErrorSnackbar(errorList: [
+          ErrorSnackbars(errorList: [
             "No user found for that email." + e.message.toString()
           ]),
         );
       } else if (e.code == 'wrong-password') {
         ScaffoldMessenger.of(context).showSnackBar(
-          ErrorSnackbar(errorList: [
+          ErrorSnackbars(errorList: [
             "Wrong password provided for that user." + e.message.toString()
           ]),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        ErrorSnackbar(errorList: [
+        ErrorSnackbars(errorList: [
           "This Error not on FirebaseAuthException, is Other Section \n" +
               e.toString()
         ]),
@@ -101,7 +101,7 @@ class FirebaseAnonymouslyAuthHelper extends IFirebaseAuthHelper {
       ///
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        ErrorSnackbar(errorList: ["Anonim Giriş Hatası \n" + e.toString()]),
+        ErrorSnackbars(errorList: ["Anonim Giriş Hatası \n" + e.toString()]),
       );
     }
   }
@@ -129,7 +129,7 @@ class FirebaseSocialAuthHelper extends IFirebaseAuthHelper {
       ///
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        ErrorSnackbar(
+        ErrorSnackbars(
             errorList: ["Google Giriş İçin Hatalı İşlem \n" + e.toString()]),
       );
     }

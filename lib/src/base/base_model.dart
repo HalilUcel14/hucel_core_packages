@@ -5,6 +5,9 @@ abstract class BaseModel<T> {
 
 abstract class FireBaseModel<T> {
   String? uuid;
+
+  FireBaseModel({this.uuid});
+
   Map<String, dynamic> toJson();
   T fromJson(Map<String, dynamic> json);
 }
