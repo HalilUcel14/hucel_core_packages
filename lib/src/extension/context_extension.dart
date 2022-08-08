@@ -55,8 +55,8 @@ extension DeviceOSExtension on BuildContext {
   bool get isWindows => Platform.isWindows;
   bool get isLinux => Platform.isLinux;
   bool get isMacOS => Platform.isMacOS;
-  bool get isMobile => isAndroid && isIOS;
-  bool get isDesktopWeb => isWindows && isLinux && isMacOS;
+  bool get isMobile => isAndroid || isIOS;
+  bool get isDesktopWeb => isWindows || isLinux || isMacOS;
 }
 
 extension OrientationExtension on BuildContext {
@@ -213,9 +213,51 @@ extension SharedContextExtension on BuildContext {
 }
 
 extension SnackbarContextExtension on BuildContext {
-  ScaffoldFeatureController snackbar({required List<String> errorList}) =>
+  ScaffoldFeatureController snackbar({
+    required List<String> errorList,
+    Key? snackbarKey,
+    Key? mainBodyKey,
+    double snackbarElevations = 0.0,
+    SnackBarBehavior? snackBarBehavior = SnackBarBehavior.floating,
+    SnackBarAction? snackbarAction,
+    Animation<double>? snackbarAnimation,
+    Clip snackbarClipBehavior = Clip.hardEdge,
+    EdgeInsetsGeometry? snackbarMargin,
+    void Function()? snackbaronVisible,
+    EdgeInsetsGeometry? snackbarPadding,
+    ShapeBorder? snackbarShape,
+    double? snackbarWidth,
+    DismissDirection snackbarDismissDirection = DismissDirection.down,
+    Decoration? mainBodyDecoration,
+    TextStyle? errorTextStyle,
+    Color? mainBodyDecorationColor,
+    String? labelChar,
+    String? labelText,
+    TextStyle? labelTextStyle,
+    TextStyle? labelCharStyle,
+  }) =>
       ScaffoldMessenger.of(this).showSnackBar(
         ErrorSnackbars(
+          errorTextStyle: errorTextStyle,
+          labelChar: labelChar,
+          labelCharStyle: labelCharStyle,
+          labelText: labelText,
+          labelTextStyle: labelTextStyle,
+          mainBodyDecoration: mainBodyDecoration,
+          mainBodyDecorationColor: mainBodyDecorationColor,
+          mainBodyKey: mainBodyKey,
+          snackBarBehavior: snackBarBehavior,
+          snackbarAction: snackbarAction,
+          snackbarAnimation: snackbarAnimation,
+          snackbarClipBehavior: snackbarClipBehavior,
+          snackbarDismissDirection: snackbarDismissDirection,
+          snackbarElevations: snackbarElevations,
+          snackbarKey: snackbarKey,
+          snackbarMargin: snackbarMargin,
+          snackbarPadding: snackbarPadding,
+          snackbarShape: snackbarShape,
+          snackbarWidth: snackbarWidth,
+          snackbaronVisible: snackbaronVisible,
           errorList: errorList,
         ),
       );
