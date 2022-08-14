@@ -61,6 +61,8 @@ extension DeviceOSExtension on BuildContext {
 
 extension OrientationExtension on BuildContext {
   Orientation get orientation => MediaQuery.of(this).orientation;
+  Orientation get portrait => Orientation.portrait;
+  Orientation get landscape => Orientation.landscape;
 }
 
 extension ColorExtension on BuildContext {
