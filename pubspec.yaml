@@ -46,16 +46,17 @@ dependencies:
   firebase_storage: ^10.2.12
   
   # -- social account -- #
-  google_sign_in: ^4.5.1
+  google_sign_in: ^5.4.1
   flutter_facebook_auth: ^3.5.0
   twitter_login: ^4.0.1
-  github_sign_in: ^0.0.5-dev.4
 
   ## - Other Packages - ##
   logger: ^1.1.0
   connectivity_plus: ^2.3.4
   ##
   rxdart: ^0.27.5
+  http: ^0.13.5
+  async: ^2.8.2
 
 
 
