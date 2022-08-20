@@ -1,6 +1,6 @@
 import 'package:rxdart/rxdart.dart';
 
-extension Unwrap<T> on Subject<T?> {
+extension Unwraped<T> on Subject<T?> {
   Stream<T> unwrap() => switchMap(
         (value) {
           if (value == null) {

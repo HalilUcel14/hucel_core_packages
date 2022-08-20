@@ -57,6 +57,7 @@ dependencies:
   rxdart: ^0.27.5
   http: ^0.13.5
   async: ^2.8.2
+  image_picker: ^0.8.5+3
 
 
 

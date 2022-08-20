@@ -264,3 +264,7 @@ extension SnackbarContextExtension on BuildContext {
         ),
       );
 }
+
+extension RemoveCurrentSnacbar on BuildContext {
+  void get removeSnackbar => ScaffoldMessenger.of(this).removeCurrentSnackBar();
+}

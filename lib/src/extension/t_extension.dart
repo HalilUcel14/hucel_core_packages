@@ -20,3 +20,13 @@ extension WithDelay<T> on T {
   Future<T> toFuture([Duration? delay]) =>
       delay != null ? Future.delayed(delay, () => this) : Future.value(this);
 }
+
+extension FlatMap<T> on T? {
+  E? flatMap<E>(E? Function(T value) f) {
+    if (this != null) {
+      return f(this!);
+    } else {
+      return null;
+    }
+  }
+}

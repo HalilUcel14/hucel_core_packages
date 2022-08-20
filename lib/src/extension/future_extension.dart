@@ -26,3 +26,21 @@ extension FutureExtension on Future {
     );
   }
 }
+
+extension EmptyOnError<E> on Future<List<Iterable<E>>> {
+  Future<List<Iterable<E>>> emptyOnError() => catchError(
+        (_, __) => List<Iterable<E>>.empty(),
+      );
+}
+
+extension OnError<T> on Future<T> {
+  // https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/future-error-handling-in-dart/future-error-handling-in-dart.dart
+  Future<T> onErrorJustReturn(T value) => catchError((_) => value);
+}
+
+extension Unwrap<T> on Future<T?> {
+  // https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/future-unwrap-in-flutter/future-unwrap-in-flutter.dart
+  Future<T> unwrap() => then(
+        (value) => value != null ? Future<T>.value(value) : Future.any([]),
+      );
+}
