@@ -184,3 +184,7 @@ extension LocaleFileData on String {
 extension IfDebugging on String {
   String? get ifDebugging => kDebugMode ? this : null;
 }
+
+extension ToList on String {
+  Uint8List toUint8List() => Uint8List.fromList(codeUnits);
+}
