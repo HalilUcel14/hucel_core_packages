@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../hucel_core.dart';
 
 extension InLineAdd<T> on Iterable<T> {
   /// const Iterable<int> value = [10,20,30];
@@ -31,4 +33,26 @@ extension OptionalFlattend<T> on Iterable<List<T>?> {
 
 extension Flattend<T> on Iterable<List<T>> {
   Iterable<T> flattened() => expand((e) => e);
+}
+
+extension CompactMap<T> on Iterable<T?> {
+  //https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/iterable-compactmap-in-dart/iterable-compactmap-in-dart.md
+  Iterable<T> compactMap<E>([E? Function(T?)? transform]) =>
+      map(transform ?? (e) => e).where((element) => element != null).cast();
+}
+
+extension AddRemoveItems<T> on Iterable<T> {
+  Iterable<T> operator +(T other) => followedBy([other]);
+  Iterable<T> operator -(T other) => where((element) => element != other);
+}
+
+extension Subscript<T> on Iterable<T> {
+  T? operator [](int index) => length > index ? elementAt(index) : null;
+}
+
+extension ToListView<T> on Iterable<T> {
+  // https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/iterable-to-listview-in-flutter/iterable-to-listview-in-flutter.md
+  Widget toListView() => IterableListView(
+        iterable: this,
+      );
 }

@@ -97,7 +97,7 @@ extension GoAround<T> on List<T> {
   }
 }
 
-extension CompactMap<T> on List<T> {
+extension CompactListMap<T> on List<T> {
   List<E> compactMap<E>(E? Function(T element) f) {
     Iterable<E> imp(E? Function(T element) f) sync* {
       for (final value in this) {
@@ -109,5 +109,13 @@ extension CompactMap<T> on List<T> {
     }
 
     return imp(f).toList();
+  }
+}
+
+//https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/infinite-arrays-in-dart/infinite-arrays-in-dart.md
+extension GoingAround<T> on List<T> {
+  T elementByGoingAround(int index) {
+    final finalIndex = index >= length ? index.remainder(length) : index;
+    return this[finalIndex];
   }
 }

@@ -188,3 +188,16 @@ extension IfDebugging on String {
 extension ToList on String {
   Uint8List toUint8List() => Uint8List.fromList(codeUnits);
 }
+
+extension SplitByLength on String {
+  Iterable<String> splitByLength(int len, {String filler = '0'}) sync* {
+    final missingFromLength =
+        length % len == 0 ? 0 : len - (characters.length % len);
+    final expectedLength = length + missingFromLength;
+    final src = padLeft(expectedLength, filler);
+    final chars = src.characters;
+    for (var i = 0; i < chars.length; i += len) {
+      yield chars.getRange(i, i + len).toString();
+    }
+  }
+}
