@@ -112,10 +112,49 @@ extension CompactListMap<T> on List<T> {
   }
 }
 
+extension IsEqualToIgnoringOrdering<T> on List<T> {
+  bool isEqualToIgnoringOrdering(List<T> other) =>
+      length == other.length &&
+      {...this}.intersection({...other}).length == length;
+}
+
 //https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/infinite-arrays-in-dart/infinite-arrays-in-dart.md
 extension GoingAround<T> on List<T> {
   T elementByGoingAround(int index) {
     final finalIndex = index >= length ? index.remainder(length) : index;
     return this[finalIndex];
   }
+}
+
+extension Duplicates<T> on List<T> {
+  // https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/managing-duplicates-in-list-t-in-dart/managing-duplicates-in-list-t-in-dart.md
+  void addAllByAvoidingDuplicates(Iterable<T> values) => replaceRange(
+        0,
+        length,
+        {
+          ...([...this] + [...values])
+        },
+      );
+  int get numberOfDuplicates => length - {...this}.length;
+
+  bool get containsDuplicates => numberOfDuplicates > 0;
+
+  List<T> get uniques => [
+        ...{...this}
+      ];
+  void removeDuplicates() => replaceRange(0, length, uniques);
+
+  List<T> get duplicates => [
+        for (var i = 0; i < length; i++)
+          {
+            [...this].skip(i + 1).contains(this[i]) ? this[i] : null
+          }
+      ].whereType<T>().toList();
+}
+
+extension MinMax<T extends num> on List<T> {
+  T get min => _sorted.first;
+  T get max => _sorted.last;
+
+  List<T> get _sorted => [...this]..sort();
 }

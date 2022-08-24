@@ -127,6 +127,8 @@ export 'src/vandad_tips/isolate_stream.dart';
 export 'src/vandad_tips/iterable_tips.dart';
 export 'src/vandad_tips/iterable_to_listview.dart';
 export 'src/vandad_tips/iterables_as_range_and_transform.dart';
+export 'src/vandad_tips/layz_stream_in_local.dart';
+export 'src/vandad_tips/loading_dialog.dart';
 export 'src/vandad_tips/map_tips.dart';
 export 'src/vandad_tips/my_circle_painter.dart';
 export 'src/vandad_tips/network_image_asset.dart';

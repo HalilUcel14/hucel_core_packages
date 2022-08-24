@@ -201,3 +201,26 @@ extension SplitByLength on String {
     }
   }
 }
+
+extension LocalFileData on String {
+  Future<Uint8List> localFileData() => rootBundle.load(this).then(
+        (value) => value.buffer.asUint8List(),
+      );
+}
+
+extension ToListItemImage on String {
+  Widget toListItemImage({double height = 150, double? width}) {
+    return LimitedBox(
+      maxHeight: height,
+      maxWidth: width ?? double.infinity,
+      child: Image.network(
+        this,
+        fit: BoxFit.fitWidth,
+      ),
+    );
+  }
+}
+
+extension Minus on String {
+  String operator -(String rhs) => replaceAll(rhs, '');
+}

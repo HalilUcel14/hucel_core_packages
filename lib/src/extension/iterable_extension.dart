@@ -56,3 +56,12 @@ extension ToListView<T> on Iterable<T> {
         iterable: this,
       );
 }
+
+extension IterableWithIndex<T> on Iterable<T> {
+  Iterable<E> mapWithIndex<E>(E Function(int index, T value) f) =>
+      Iterable.generate(length).map((e) => f(e, elementAt(e)));
+}
+
+extension MapToList<T> on Iterable<T> {
+  List<E> mapList<E>(E Function(T) toElement) => map(toElement).toList();
+}
