@@ -66,7 +66,7 @@ class HUNetworkImage extends StatelessWidget {
       colorBlendMode: colorBlendMode,
       excludeFromSemantics: excludeFromSemantics,
       filterQuality: filterQuality,
-      fit: fit,
+      fit: fit ?? BoxFit.cover,
       frameBuilder: frameBuilder,
       gaplessPlayback: gaplessPlayback,
       headers: headers,

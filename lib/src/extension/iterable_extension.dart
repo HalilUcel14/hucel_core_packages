@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../hucel_core.dart';
@@ -64,4 +66,13 @@ extension IterableWithIndex<T> on Iterable<T> {
 
 extension MapToList<T> on Iterable<T> {
   List<E> mapList<E>(E Function(T) toElement) => map(toElement).toList();
+}
+
+extension RandomElement<T> on Iterable<T> {
+  T getRandomElement() => elementAt(Random().nextInt(length));
+}
+
+extension RemoveAll<E> on Iterable<E> {
+  Iterable<E> operator -(Iterable<E> other) =>
+      where((element) => !other.contains(element));
 }

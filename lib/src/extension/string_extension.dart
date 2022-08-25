@@ -58,39 +58,41 @@ extension StringValidator on String {
 }
 
 extension AuthorizationExtension on String {
-  Map<String, dynamic> get beraer => {'Authırization': 'Bearer ${this}'};
+  Map<String, dynamic> get beraer => {'Authorization': 'Bearer ${this}'};
 }
 
 extension LaunchExtension on String {
-  Future<bool> get launchEmail => launch('mailto:$this');
-  Future<bool> get launchPhone => launch('tel:$this');
-  Future<bool> get launchWebsite => launch(this);
+  Future<bool> get launchEmail => launchUrl(Uri.parse('mailto:$this'));
+  Future<bool> get launchPhone => launchUrl(Uri.parse('tel://$this'));
+  Future<bool> get launchWebsite => launchUrl(Uri.parse(this));
 
-  Future<bool> launchWebsiteCuston({
-    bool? forceSafariVC,
-    bool forceWebView = false,
-    bool enableJavaScript = false,
-    bool enableDomStorage = false,
-    bool universalLinksOnly = false,
-    Map<String, String> headers = const <String, String>{},
-    Brightness? statusBarBrightness,
-    String? webOnlyWindowName,
-  }) =>
-      launch(this,
-          forceSafariVC: forceSafariVC,
-          forceWebView: forceWebView,
-          enableDomStorage: enableDomStorage,
-          enableJavaScript: enableJavaScript,
-          universalLinksOnly: universalLinksOnly,
-          headers: headers,
-          statusBarBrightness: statusBarBrightness,
-          webOnlyWindowName: webOnlyWindowName);
+  // Future<bool> launchWebsiteCuston({
+  //   bool? forceSafariVC,
+  //   bool forceWebView = false,
+  //   bool enableJavaScript = false,
+  //   bool enableDomStorage = false,
+  //   bool universalLinksOnly = false,
+  //   Map<String, String> headers = const <String, String>{},
+  //   Brightness? statusBarBrightness,
+  //   String? webOnlyWindowName,
+  // }) =>
+
+  // launchUrl(this,
+  //     forceSafariVC: forceSafariVC,
+  //     forceWebView: forceWebView,
+  //     enableDomStorage: enableDomStorage,
+  //     enableJavaScript: enableJavaScript,
+  //     universalLinksOnly: universalLinksOnly,
+  //     headers: headers,
+  //     statusBarBrightness: statusBarBrightness,
+  //     webOnlyWindowName: webOnlyWindowName);
 }
 
 extension ShareText on String {
   Future<void> shareWhatsApp() async {
     try {
-      final isLaunch = await launch('${AppConstants.whatsAppPrefix}$this');
+      final isLaunch =
+          await launchUrl(Uri.parse('${AppConstants.whatsAppPrefix}$this'));
       if (!isLaunch) await share();
     } catch (e) {
       await share();
@@ -100,7 +102,8 @@ extension ShareText on String {
   //
   Future<void> shareMail(String title) async {
     final value = DeviceUtility.instance.shareMailText(title, this);
-    final isLaunch = await launch(Uri.encodeFull(value));
+    final encoded = Uri.encodeFull(this);
+    final isLaunch = await launchUrl(Uri.parse(encoded));
     if (!isLaunch) await value.share();
   }
 
@@ -223,4 +226,12 @@ extension ToListItemImage on String {
 
 extension Minus on String {
   String operator -(String rhs) => replaceAll(rhs, '');
+}
+
+extension CanLauncher on String {
+  void openLauncher(Uri url) async {
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
+  }
 }

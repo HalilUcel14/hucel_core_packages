@@ -158,3 +158,25 @@ extension MinMax<T extends num> on List<T> {
 
   List<T> get _sorted => [...this]..sort();
 }
+
+extension OddEvenSort on List<int> {
+  void oddEvenSort() {
+    var isSorted = false;
+    bool _sort({int fromIndex = 0}) {
+      var isSorted = true;
+      for (var i = fromIndex; i < length - 1; i += 2) {
+        if (this[i] > this[i + 1]) {
+          //this.swap(i, i + 1);
+          isSorted = false;
+        }
+      }
+      return isSorted;
+    }
+
+    while (!isSorted) {
+      isSorted = true;
+      isSorted = _sort(fromIndex: 1);
+      isSorted = _sort();
+    }
+  }
+}
