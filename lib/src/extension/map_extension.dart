@@ -24,3 +24,17 @@ extension Merge<K, V> on Map<K, V> {
   //https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/merging-maps-in-dart/merging-maps-in-dart.md
   Map<K, V> operator |(Map<K, V> other) => {...this}..addEntries(other.entries);
 }
+
+extension KeyPath on Map {
+  Object? valueFor({required String keyPath}) {
+    final keySplit = keyPath.split('.');
+    final thisKey = keySplit.removeAt(0);
+    final thisValue = this[thisKey];
+    if (keySplit.isEmpty) {
+      return thisValue;
+    } else if (thisValue is Map) {
+      return thisValue.valueFor(keyPath: keySplit.join('.'));
+    }
+    return null;
+  }
+}

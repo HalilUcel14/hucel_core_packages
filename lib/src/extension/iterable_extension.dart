@@ -76,3 +76,30 @@ extension RemoveAll<E> on Iterable<E> {
   Iterable<E> operator -(Iterable<E> other) =>
       where((element) => !other.contains(element));
 }
+
+extension Flatted<T extends Object> on Iterable<T> {
+  Iterable<T> flatten() {
+    Iterable<T> _flatten(Iterable<T> list) sync* {
+      for (final value in list) {
+        if (value is List<T>) {
+          yield* _flatten(value);
+        } else {
+          yield value;
+        }
+      }
+    }
+
+    return _flatten(this);
+  }
+}
+
+extension FlattenFind<T extends Comparable> on Iterable<Iterable<T>> {
+  bool containsElement(T value) {
+    for (final arr in this) {
+      if (arr.contains(value)) {
+        return true;
+      }
+    }
+    return false;
+  }
+}

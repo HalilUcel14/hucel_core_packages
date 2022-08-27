@@ -16,10 +16,9 @@ Future<Size> getImageSize(String uri) {
       ));
 }
 
-void _TestIt() async {
-  final imagesize = await getImageSize('uri');
-  print(imagesize);
-  assert(imagesize.width == 2048.0);
-  assert(imagesize.height == 1365.0);
-  print(imagesize.aspectRatio);
+// ignore: unused_element
+void _testIt() async {
+  final imageSize = await getImageSize('uri');
+  assert(imageSize.width == 2048.0);
+  assert(imageSize.height == 1365.0);
 }

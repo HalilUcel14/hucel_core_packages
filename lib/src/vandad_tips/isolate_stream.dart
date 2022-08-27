@@ -20,6 +20,7 @@ void _getMessages(SendPort sp) async {
 }
 
 //https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/isolate-stream-in-dart/isolate-stream-in-dart.md
+// ignore: unused_element
 void _testIt() async {
   await for (final msg in getMessages()) {
     msg.toString();

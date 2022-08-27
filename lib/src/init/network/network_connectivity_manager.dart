@@ -25,7 +25,8 @@ class NetworkConnectivityManager extends INetworkConnectivity {
   void handleConnectivityChange(ConnectivityCallBack onChange) {
     _subscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      print(result);
+      'Handle Connectivity Change'.exceptionMode(result);
+
       onChange.call(ConnectedResult.checkedConnectivityResult(result));
     });
   }

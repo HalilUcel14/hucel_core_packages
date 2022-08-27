@@ -235,3 +235,30 @@ extension CanLauncher on String {
     }
   }
 }
+
+extension ReplaceAll on String {
+  String replaceMap(Map<String, String> fromList) {
+    var result = this;
+    fromList.forEach((key, value) {
+      result = result.replaceAll(key, value);
+    });
+    return result;
+  }
+}
+
+extension ExceptionKMode on String {
+  void exceptionMode(Object? e) {
+    if (kDebugMode) {
+      throw Exception('$this = $e');
+    } else if (kReleaseMode) {
+      // ignore: avoid_print
+      print('$this = $e');
+    }
+  }
+
+  void printDebugMode() {
+    if (kDebugMode) {
+      print('this');
+    }
+  }
+}

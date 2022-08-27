@@ -25,7 +25,3 @@ class NavigationConstants {
   static const settings = '/Settings';
   //
 }
-
-extension on NavigationConstants {
-  static const hello = '/Hello';
-}

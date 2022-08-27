@@ -17,5 +17,6 @@ void testIt() {
     values.reduce(minus), // = 93
     values.reduce(multiply), // = 1000
     values.reduce(divide), // = 10
+    // ignore: avoid_print
   ].forEach(print);
 }

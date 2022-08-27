@@ -26,6 +26,7 @@ export 'src/constants/easy_locale_constants.dart';
 export 'src/exception/error_widget_builder.dart';
 export 'src/exception/file_manager_not_found.dart';
 export 'src/exception/page_info_exceptions.dart';
+export 'src/exception/network_connectivity_exception.dart';
 
 // ###---< extension >---###
 export 'src/extension/another_extension.dart';
@@ -76,6 +77,10 @@ export 'src/interface/i_firebase_auth.dart';
 export 'src/interface/i_theme_manager.dart';
 export 'src/interface/i_network_connectivity.dart';
 //
+//
+// ###---< Models >---###
+export 'src/mixin/reusable_apis_mixin.dart';
+//
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
 //
@@ -116,7 +121,7 @@ export 'src/vandad_tips/generic_object_map.dart';
 export 'src/vandad_tips/generic_route_arguments.dart';
 export 'src/vandad_tips/generic_types_aliases.dart';
 export 'src/vandad_tips/generic_url_retrieve.dart';
-export 'src/vandad_tips/generically-convert-anything-to-int.dart';
+
 export 'src/vandad_tips/handle_multiply_future_error.dart';
 export 'src/vandad_tips/image_gallery_transform.dart';
 export 'src/vandad_tips/image_opacity_with_slider.dart';
@@ -139,3 +144,9 @@ export 'src/vandad_tips/orientation_builder_grid_view_image.dart';
 export 'src/vandad_tips/paginated_list_iterable.dart';
 export 'src/vandad_tips/paginated_listview.dart';
 export 'src/vandad_tips/play_youtube_video.dart';
+export 'src/vandad_tips/proportional_with_network_image.dart';
+export 'src/vandad_tips/query_parametres.dart';
+export 'src/vandad_tips/raw_auto_complete.dart';
+export 'src/vandad_tips/rendering_bullet_points.dart';
+export 'src/vandad_tips/rethrowing_exception.dart';
+export 'src/vandad_tips/retrying_futures.dart';

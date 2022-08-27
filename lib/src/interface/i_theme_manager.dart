@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 //
@@ -10,7 +12,7 @@ abstract class IThemeManager {
 }
 
 //
-// Theme Ligt ve Dart için Abstract
+// Theme Light ve Dart için Abstract
 abstract class IApplicationTheme {
   ThemeData? theme;
 }

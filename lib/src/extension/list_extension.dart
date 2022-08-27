@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_shadowing_type_parameters, unused_local_variable
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -177,6 +179,56 @@ extension OddEvenSort on List<int> {
       isSorted = true;
       isSorted = _sort(fromIndex: 1);
       isSorted = _sort();
+    }
+  }
+}
+
+///https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/removing-duplicate-strings-in-lists-in-dart/removing-duplicate-strings-in-lists-in-dart.md
+extension RemoveDuplicates on List<String> {
+  List<String> removeDuplicates() {
+    final lowered = [...map((e) => e.toLowerCase())];
+    return [
+      for (var keyValue in lowered.asMap().entries)
+        if (lowered.lastIndexOf(keyValue.value) == keyValue.key)
+          this[keyValue.key]
+    ];
+  }
+}
+
+extension DuplicateRemoval<T> on List<T> {
+  List<T> get byRemovingDuplicates => [
+        ...{...this}
+      ];
+}
+
+extension RotatingList<T> on List<T> {
+  int _rotationTimes(int places) {
+    if (isEmpty) {
+      return 0;
+    }
+    if (places == 0) {
+      throw ArgumentError('places should be more than 0');
+    }
+    return places % length;
+  }
+
+  List<T> rotatedRight(int places) {
+    final times = _rotationTimes(places);
+    if (times == 0) {
+      return this;
+    } else {
+      final cutOff = length - times;
+      return sublist(cutOff)..addAll(sublist(0, cutOff));
+    }
+  }
+
+  List<T> rotatedLeft(int places) {
+    final times = _rotationTimes(places);
+    if (times == 0) {
+      return this;
+    } else {
+      final cutOff = length - times;
+      return sublist(times)..addAll(sublist(0, times));
     }
   }
 }
