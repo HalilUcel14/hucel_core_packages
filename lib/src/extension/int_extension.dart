@@ -48,3 +48,10 @@ extension RandomARGBColor on int {
   Color get randomColorARGB =>
       Color.fromARGB(255, zeroTo255, zeroTo255, zeroTo255);
 }
+
+extension SortingGenerics on int {
+  int isLessThan<T extends Comparable>(T a, T b) => a.compareTo(b);
+  int isMoreThan<T extends Comparable>(T a, T b) => b.compareTo(a);
+//
+
+}

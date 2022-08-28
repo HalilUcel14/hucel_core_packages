@@ -262,3 +262,23 @@ extension ExceptionKMode on String {
     }
   }
 }
+
+extension Toast on String {
+  Future<void> showAsToast(BuildContext context,
+      {required Duration duration}) async {
+    final scaffold = ScaffoldMessenger.of(context);
+    final controller = scaffold.showSnackBar(
+      SnackBar(
+        content: Text(this),
+        backgroundColor: const Color(0xFF24283b),
+        behavior: SnackBarBehavior.floating,
+        elevation: 2.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+    );
+    await Future.delayed(duration);
+    controller.close();
+  }
+}

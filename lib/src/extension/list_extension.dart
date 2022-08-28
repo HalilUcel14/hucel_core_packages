@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hucel_core/hucel_core.dart';
 
 extension ListExtension on List? {
   bool get isNotNullorEmpty {
@@ -230,5 +231,39 @@ extension RotatingList<T> on List<T> {
       final cutOff = length - times;
       return sublist(times)..addAll(sublist(0, times));
     }
+  }
+}
+
+extension Splice<T> on List<T> {
+  Iterable<T> splice(int start, int count, [List<T>? insert]) {
+    final result = [...getRange(start, start + count)];
+    replaceRange(start, start + count, insert ?? []);
+    return result;
+  }
+}
+
+extension SplitByLengthList on String {
+  Iterable<String> splitByLengthList(int len, {String filler = '0'}) sync* {
+    final missingFromLength =
+        length % len == 0 ? 0 : len - (characters.length % len);
+    final expectedLength = length + missingFromLength;
+    final src = padLeft(expectedLength, filler);
+    final chars = src.characters;
+    for (var i = 0; i < chars.length; i += len) {
+      yield chars.getRange(i, i + len).toString();
+    }
+  }
+}
+
+extension SwapValues on List<int> {
+  void swap(int a, int b) {
+    if (a == b) {
+      'a and b should not be the same value'.exceptionMode('');
+    }
+    RangeError.checkValidIndex(a, this);
+    RangeError.checkValidIndex(b, this);
+    this[a] ^= this[b];
+    this[b] ^= this[a];
+    this[a] ^= this[b];
   }
 }

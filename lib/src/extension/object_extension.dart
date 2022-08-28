@@ -25,3 +25,16 @@ extension GetOnUri on Object {
   Future<HttpClientResponse> getUrl(String url) =>
       HttpClient().getUrl(Uri.parse(url)).then((value) => value.close());
 }
+
+extension CapTitle on Object {
+  /// https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/title-on-object-in-dart/title-on-object-in-dart.md
+  String get capitalizedTitle {
+    String str;
+    if (this is Enum) {
+      str = (this as Enum).name;
+    } else {
+      str = toString();
+    }
+    return str[0].toUpperCase() + str.substring(1);
+  }
+}
