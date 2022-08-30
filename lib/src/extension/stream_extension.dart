@@ -32,3 +32,7 @@ extension StartWith<T> on Stream<T> {
         Stream<T>.value(value),
       ]);
 }
+
+extension UnWrapStream<T> on Stream<T?> {
+  Stream<T> unWrap() => where((event) => event != null).cast();
+}

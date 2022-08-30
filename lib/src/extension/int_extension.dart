@@ -55,3 +55,11 @@ extension SortingGenerics on int {
 //
 
 }
+
+extension Wait on int {
+  Future<void> get seconds => Future.delayed(Duration(seconds: this));
+  Future<void> get minutes => Future.delayed(Duration(minutes: this));
+  Future<void> get hours => Future.delayed(Duration(hours: this));
+  Future<void> get days => Future.delayed(Duration(days: this));
+  Future<void> get milliSeconds => Future.delayed(Duration(milliseconds: this));
+}

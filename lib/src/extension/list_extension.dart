@@ -267,3 +267,30 @@ extension SwapValues on List<int> {
     this[a] ^= this[b];
   }
 }
+
+extension UnWrap<T> on List<T?>? {
+  /// https://github.com/vandadnp/flutter-tips-and-tricks/blob/main/tipsandtricks/unwrap-list-t%3F-%3F-in-dart/unwrap-list-t%3F-%3F-in-dart.md
+  List<T> unWrap() => (this ?? []).whereType<T>().toList();
+}
+
+final randomGenerators = Expando();
+
+extension RandomElementList<T> on List<T> {
+  Random _randomizer() {
+    if (randomGenerators[this] == null) {
+      Random randomizer;
+      try {
+        randomizer = Random.secure();
+      } catch (_) {
+        randomizer = Random();
+      }
+      randomGenerators[this] = randomizer;
+      return randomizer;
+    } else {
+      randomGenerators[this] as Random;
+    }
+    return Random();
+  }
+
+  T get randomElement => this[_randomizer().nextInt(length)];
+}
