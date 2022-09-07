@@ -2,7 +2,7 @@
 
 ## mail address : hucelsoft@gmail.com
 
-## youtube : https://www.youtube.com/channel/UC4GTOIiDWEe6jIuXlqSIhQg,
+## youtube : https://www.youtube.com/channel/UC4GTOIiDWEe6jIuXlqSIhQg
 
 ## Github : https://github.com/HalilUcel14
 

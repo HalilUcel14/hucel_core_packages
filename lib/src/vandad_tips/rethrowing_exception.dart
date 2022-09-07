@@ -1,4 +1,5 @@
 import 'package:hucel_core/hucel_core.dart';
+import 'package:hucel_core/src/function/exception_mode.dart';
 
 Iterable<int?> intsFrom(List<dynamic> list) sync* {
   for (var item in list) {
@@ -8,7 +9,7 @@ Iterable<int?> intsFrom(List<dynamic> list) sync* {
     } on FormatException {
       yield null;
     } catch (e) {
-      'unexpected error, underlying error'.exceptionMode(e);
+      exceptionMode('unexpected error, underlying error');
     }
   }
 }

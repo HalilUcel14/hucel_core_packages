@@ -84,6 +84,9 @@ export 'src/mixin/reusable_apis_mixin.dart';
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
 //
+// ###---< Function >---###
+export 'src/function/exception_mode.dart';
+//
 // ###---< Firebase >---###
 export 'src/feature/firebase/authentication/authentication_helper.dart';
 export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
