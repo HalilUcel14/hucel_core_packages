@@ -50,6 +50,55 @@ class ErrorSnackbars extends SnackBar {
           elevation: snackbarElevations,
           behavior: snackBarBehavior,
         );
+
+  ErrorSnackbars.error({
+    Key? snackbarKey,
+    Key? mainBodyKey,
+    double snackbarElevations = 0.0,
+    SnackBarBehavior? snackBarBehavior = SnackBarBehavior.floating,
+    SnackBarAction? snackbarAction,
+    Animation<double>? snackbarAnimation,
+    Clip snackbarClipBehavior = Clip.hardEdge,
+    required List<String> errorList,
+    EdgeInsetsGeometry? snackbarMargin,
+    void Function()? snackbaronVisible,
+    EdgeInsetsGeometry? snackbarPadding,
+    ShapeBorder? snackbarShape,
+    double? snackbarWidth,
+    DismissDirection snackbarDismissDirection = DismissDirection.down,
+    Decoration? mainBodyDecoration,
+    TextStyle? errorTextStyle,
+    Color? mainBodyDecorationColor,
+    String? labelChar = '!',
+    String? labelText = 'Error',
+    TextStyle? labelTextStyle,
+    TextStyle? labelCharStyle,
+  }) : super(
+          key: snackbarKey,
+          content: _SnackBarChilds(
+            key: mainBodyKey,
+            labelChar: labelChar,
+            labelText: labelText,
+            labelCharStyle: labelCharStyle,
+            labelTextStyle: labelTextStyle,
+            errorList: errorList,
+            decoration: mainBodyDecoration,
+            errorTextStyle: errorTextStyle,
+            decorationColor: mainBodyDecorationColor,
+          ),
+          animation: snackbarAnimation,
+          clipBehavior: snackbarClipBehavior,
+          dismissDirection: snackbarDismissDirection,
+          action: snackbarAction,
+          margin: snackbarMargin,
+          padding: snackbarPadding,
+          shape: snackbarShape,
+          width: snackbarWidth,
+          onVisible: snackbaronVisible,
+          backgroundColor: Colors.transparent,
+          elevation: snackbarElevations,
+          behavior: snackBarBehavior,
+        );
 }
 
 class _SnackBarChilds extends StatelessWidget {
@@ -77,58 +126,64 @@ class _SnackBarChilds extends StatelessWidget {
   //
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: context.heightL / 1.5,
-            left: context.heightXS,
-            right: context.heightXS,
+    return SizedBox(
+      width: double.infinity > 600 ? 600 : double.infinity,
+      child: Stack(
+        children: [
+          _mainContainer(context),
+          _icons(context),
+          _labels(context),
+        ],
+      ),
+    );
+  }
+
+  Container _mainContainer(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: context.heightL / 1.5,
+        left: context.heightXS,
+        right: context.heightXS,
+      ),
+      height: context.heightXXL * 1.75,
+      margin: EdgeInsets.only(top: context.heightN),
+      decoration: decoration ??
+          BoxDecoration(
+            borderRadius: context.borderRadiusN,
+            color: decorationColor ?? Colors.orange,
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 20,
+                blurStyle: BlurStyle.solid,
+                color: Colors.black,
+                spreadRadius: 1.5,
+              ),
+            ],
           ),
-          height: context.heightXXL * 1.75,
-          margin: EdgeInsets.only(top: context.heightN),
-          width: double.infinity > 600 ? 600 : double.infinity,
-          decoration: decoration ??
-              BoxDecoration(
-                borderRadius: context.borderRadiusN,
-                color: decorationColor ?? Colors.orange,
-                boxShadow: const [
-                  BoxShadow(
-                    blurRadius: 20,
-                    blurStyle: BlurStyle.solid,
-                    color: Colors.black,
-                    spreadRadius: 1.5,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            errorList.length,
+            (index) => Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    '* ${errorList[index]}',
+                    style: errorTextStyle ??
+                        TextStyle(
+                          color: Colors.black,
+                          fontSize: context.heightS * 0.9,
+                        ),
                   ),
-                ],
-              ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                errorList.length,
-                (index) => Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        '* ${errorList[index]}',
-                        style: errorTextStyle ??
-                            TextStyle(
-                              color: Colors.black,
-                              fontSize: context.heightS * 0.9,
-                            ),
-                      ),
-                    ),
-                    SizedBox(height: context.heightN)
-                  ],
                 ),
-              ),
+                SizedBox(height: context.heightN)
+              ],
             ),
           ),
         ),
-        _icons(context),
-        _labels(context),
-      ],
+      ),
     );
   }
 
