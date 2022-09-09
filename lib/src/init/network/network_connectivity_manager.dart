@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:hucel_core/src/function/exception_mode.dart';
 
 import '../../../hucel_core.dart';
 

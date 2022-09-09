@@ -1,6 +1,7 @@
 // ---------- Cancelable Api ---------------------
+import 'dart:typed_data';
+
 import 'package:async/async.dart' show CancelableOperation;
-import 'dart:typed_data' show Uint8List;
 
 import 'package:flutter/services.dart';
 import 'package:hucel_core/hucel_core.dart';

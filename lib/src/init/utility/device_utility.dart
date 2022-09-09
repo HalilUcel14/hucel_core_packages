@@ -1,4 +1,4 @@
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:hucel_core/src/constants/app_constants.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -23,7 +23,7 @@ class DeviceUtility {
   //
   Future<bool> isIpad() async {
     iosDeviceInfo = await deviceInfoPlugin.iosInfo;
-    return iosDeviceInfo.name.toLowerCase().contains(AppConstants.ipadType);
+    return iosDeviceInfo.name!.toLowerCase().contains(AppConstants.ipadType);
   }
 
   String shareMailText(String title, String body) {

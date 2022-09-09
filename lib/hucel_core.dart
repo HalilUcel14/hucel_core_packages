@@ -88,7 +88,7 @@ export 'src/models/local_file_model.dart';
 export 'src/function/exception_mode.dart';
 //
 // ###---< Firebase >---###
-export 'src/feature/firebase/authentication/authentication_helper.dart';
+
 export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
 export 'src/feature/firebase/firestore/firestore_get_downloadurl.dart';
 //

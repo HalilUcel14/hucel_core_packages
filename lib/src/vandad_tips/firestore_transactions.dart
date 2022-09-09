@@ -5,7 +5,6 @@ Future<void> deleteAllDocumentFirestore({
   required String collections,
 }) {
   return FirebaseFirestore.instance.runTransaction(
-    maxAttempts: 3,
     timeout: const Duration(seconds: 20),
     (transaction) async {
       final query = await FirebaseFirestore.instance
