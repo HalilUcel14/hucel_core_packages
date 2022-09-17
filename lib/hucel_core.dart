@@ -46,6 +46,7 @@ export 'src/extension/stream_extension.dart';
 export 'src/extension/string_extension.dart';
 export 'src/extension/subject_extension.dart';
 export 'src/extension/t_extension.dart';
+export 'src/extension/textstyle_extension.dart';
 export 'src/extension/uri_extension.dart';
 export 'src/extension/voidcallback_extension.dart';
 export 'src/extension/widget_extension.dart';
@@ -86,6 +87,7 @@ export 'src/models/local_file_model.dart';
 //
 // ###---< Function >---###
 export 'src/function/exception_mode.dart';
+export 'src/function/log_function.dart';
 //
 // ###---< Firebase >---###
 
@@ -109,6 +111,7 @@ export 'src/vandad_tips/check_existence_web.dart';
 export 'src/vandad_tips/check_if_website_up_down.dart';
 export 'src/vandad_tips/chery_picking_bool_function.dart';
 export 'src/vandad_tips/circular_progress_in_network_image.dart';
+export 'src/vandad_tips/column_with_spacing.dart';
 export 'src/vandad_tips/detect_redirects.dart';
 export 'src/vandad_tips/detecting_url_file_types.dart';
 export 'src/vandad_tips/expanding_stream_element.dart';

@@ -8,6 +8,16 @@
 
 ## Linkedin : https://www.linkedin.com/in/halilucel/
 
+### Text Theme Mod
+Ne İşe Yarar: Context içerisinden doğrudan TextTheme.Headline1 gibi uzantıları ele alabilirsiniz.
+
+```dart
+  Text(
+        'Tested',
+        style: context.headLine1,
+        );
+```
+
 ### Error SnackBar
 Ne İşe Yarar: Ekranda Error göstermek istediğiniz bilgi ve metinleri hoş bir imaj ile gösterir.
 

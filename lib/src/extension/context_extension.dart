@@ -97,6 +97,8 @@ extension ColorExtension on BuildContext {
 // Device Screen Type By Width(300-600-900)
 // Values from https://flutter.dev/docs/development/ui/layout/building-adaptive-apps
 extension ContextDeviceTypeExtension on BuildContext {
+  bool get isDesktop =>
+      width > ResponsivityConstants.instance.mediumScreenSize ? true : false;
   bool get isSmallScreen =>
       width < ResponsivityConstants.instance.smallScreenSize ? true : false;
   bool get isNormalyScreen =>

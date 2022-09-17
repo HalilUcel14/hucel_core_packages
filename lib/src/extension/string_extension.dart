@@ -187,6 +187,8 @@ extension LocaleFileData on String {
 
 extension IfDebugging on String {
   String? get ifDebugging => kDebugMode ? this : null;
+  void debugPrinted(String message) =>
+      kDebugMode ? throw Exception(message) : debugPrint(message);
 }
 
 extension ToList on String {
