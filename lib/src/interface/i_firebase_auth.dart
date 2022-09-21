@@ -1,7 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-abstract class IFirebaseAuthHelper {
-  final FirebaseAuth auth = FirebaseAuth.instance;
+abstract class IFirebaseAuthService {
+  late final FirebaseAuth auth;
+
+  Stream<User?> get authStateChange;
+
+  Future<void> signInWithEmailAndPassword(
+      {required String email, required String password});
+  Future<void> createUserWithEmailAndPassword(
+      {required String email, required String password});
+  Future<void> signOut();
+  Future<void> signInAnonymously();
 }
 
 

@@ -185,10 +185,10 @@ extension LocaleFileData on String {
       rootBundle.load(this).then((value) => value.buffer.asUint8List());
 }
 
-extension IfDebugging on String {
+extension DebugPrintExtension on String {
   String? get ifDebugging => kDebugMode ? this : null;
-  void debugPrinted(String message) =>
-      kDebugMode ? throw Exception(message) : debugPrint(message);
+  void get debugPrinted =>
+      kDebugMode ? throw Exception(this) : debugPrint(this);
 }
 
 extension ToList on String {

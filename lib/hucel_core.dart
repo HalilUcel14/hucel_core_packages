@@ -21,13 +21,16 @@ export 'src/constants/navigation_routes.dart';
 export 'src/constants/regexp_constants.dart';
 export 'src/constants/responsivity_constants.dart';
 export 'src/constants/easy_locale_constants.dart';
-
+//
+// ###---< enum >---###
+export 'src/enum/text_form_field.dart';
+//
 // ###---< exception >---###
 export 'src/exception/error_widget_builder.dart';
 export 'src/exception/file_manager_not_found.dart';
 export 'src/exception/page_info_exceptions.dart';
 export 'src/exception/network_connectivity_exception.dart';
-
+//
 // ###---< extension >---###
 export 'src/extension/another_extension.dart';
 export 'src/extension/async_extension.dart';
@@ -79,8 +82,9 @@ export 'src/interface/i_theme_manager.dart';
 export 'src/interface/i_network_connectivity.dart';
 //
 //
-// ###---< Models >---###
+// ###---< Mixin >---###
 export 'src/mixin/reusable_apis_mixin.dart';
+export 'src/mixin/form_field_mixin.dart';
 //
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
@@ -90,7 +94,7 @@ export 'src/function/exception_mode.dart';
 export 'src/function/log_function.dart';
 //
 // ###---< Firebase >---###
-
+export 'src/feature/firebase/auth/firebase_auth_service.dart';
 export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
 export 'src/feature/firebase/firestore/firestore_get_downloadurl.dart';
 //
@@ -103,6 +107,7 @@ export 'src/widget/error_snackbar.dart';
 export 'src/widget/stream_builder_helper.dart';
 export 'src/widget/network_connectivity_widget.dart';
 //
+
 // ###---< Vandad Tips >---###
 export 'src/vandad_tips/animated_icon_tips.dart';
 export 'src/vandad_tips/api_caching_image_tips.dart';

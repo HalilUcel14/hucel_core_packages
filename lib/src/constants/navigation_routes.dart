@@ -10,18 +10,17 @@ class NavigationConstants {
   static const testView = '/TestView';
   //
   static const baseRoute = "/";
-  static const splash = "/Splash";
-  static const onBoard = "/OnBoard";
+  static const splash = "/splash";
+  static const onBoard = "/onBoard";
   //
-  static const signIn = "/SignIn";
-  static const signUp = "/SignUp";
-  static const forgot = "/Forgot";
+  static const signIn = "/signIn";
+  static const signUp = "/signUp";
+  static const forgot = "/forgot";
+  static const verify = "/verify";
   //
-  static const homeView = "/Home";
-  static const product = '/Product';
-  static const details = '/Details';
+  static const home = "/home";
   //
-  static const profile = '/Profile';
-  static const settings = '/Settings';
+  static const profile = '/profile';
+  static const settings = '/settings';
   //
 }
