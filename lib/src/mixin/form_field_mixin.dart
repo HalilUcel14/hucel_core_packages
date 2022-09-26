@@ -1,7 +1,5 @@
 import 'package:hucel_core/hucel_core.dart';
 
-import '../enum/text_form_field.dart';
-
 mixin TextFormFieldMixin {
   EmailValidationEnum emailValidation({required String email}) {
     if (!email.isValidEmail) return EmailValidationEnum.notValid;
