@@ -89,6 +89,9 @@ export 'src/mixin/form_field_mixin.dart';
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
 //
+// ###---< Tools >---###
+export 'src/tools/web_scroll_behaviour.dart';
+//
 // ###---< Function >---###
 export 'src/function/exception_mode.dart';
 export 'src/function/log_function.dart';
@@ -106,6 +109,10 @@ export 'src/widget/space_sized_box.dart';
 export 'src/widget/error_snackbar.dart';
 export 'src/widget/stream_builder_helper.dart';
 export 'src/widget/network_connectivity_widget.dart';
+export 'src/widget/clickable_container.dart';
+export 'src/widget/custom_material_app.dart';
+export 'src/widget/fittedbox_text.dart';
+export 'src/widget/web_app_for_materialapp.dart';
 //
 
 // ###---< Vandad Tips >---###
