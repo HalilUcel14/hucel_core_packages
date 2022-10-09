@@ -60,6 +60,7 @@ dependencies:
   http: ^0.13.5
   async: ^2.8.2
   collection: ^1.16.0
+  lottie: ^1.4.3
   
 
 

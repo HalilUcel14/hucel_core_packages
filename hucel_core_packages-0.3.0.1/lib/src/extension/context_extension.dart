@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 
 import '../../hucel_core.dart';
 
-extension ContextExtension on BuildContext {
+extension ContextThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
   Color get backgroundColor => theme.backgroundColor;
   TextTheme get primaryTextTheme => theme.primaryTextTheme;
   ColorScheme get colorSheme => theme.colorScheme;
+}
+
+extension TextStyleExtension on BuildContext {
   //
   TextStyle? get headline1 => textTheme.headline1;
   TextStyle? get headline2 => textTheme.headline2;
@@ -35,21 +38,52 @@ extension ContextExtension on BuildContext {
   TextStyle? get labelSmall => textTheme.labelSmall;
   TextStyle? get subTitle => textTheme.subtitle1;
   TextStyle? get subTitle2 => textTheme.subtitle2;
+
+  ///
+  ///
+
+  TextTheme get primaryText => theme.primaryTextTheme;
+  //
+  TextStyle? get primaryHeadline1 => primaryText.headline1;
+  TextStyle? get primaryHeadline2 => primaryText.headline2;
+  TextStyle? get primaryHeadline3 => primaryText.headline3;
+  TextStyle? get primaryHeadline4 => primaryText.headline4;
+  TextStyle? get primaryHeadline5 => primaryText.headline5;
+  TextStyle? get primaryHeadline6 => primaryText.headline6;
+//
+  TextStyle? get primarybodyLarge => primaryText.bodyLarge;
+  TextStyle? get primarybodyMedium => primaryText.bodyMedium;
+  TextStyle? get primarybodySmall => primaryText.bodySmall;
+  TextStyle? get primarybodyText1 => primaryText.bodyText1;
+  TextStyle? get primarybodyText2 => primaryText.bodyText2;
+  //
+  TextStyle? get primarybuttonTextStyle => primaryText.button;
+  TextStyle? get primarycaptionTextStyle => primaryText.caption;
+  TextStyle? get primarydisplayLarge => primaryText.displayLarge;
+  TextStyle? get primarydisplayMedium => primaryText.displayMedium;
+  TextStyle? get primarydisplaySmall => primaryText.displaySmall;
+  //
+  TextStyle? get primarylabelLarge => primaryText.labelLarge;
+  TextStyle? get primarylabelMedium => primaryText.labelMedium;
+  TextStyle? get primarylabelSmall => primaryText.labelSmall;
+  TextStyle? get primarysubTitle => primaryText.subtitle1;
+  TextStyle? get primarysubTitle2 => primaryText.subtitle2;
 }
 
 extension MediaQueryExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
-
+  //
   Size get size => mediaQuery.size;
   //
   double get width => size.width;
   double get height => size.height;
-  //
-  double get longSize => width > height ? width : height;
-  double get shortSize => width < height ? width : height;
+  double get longestSide => size.longestSide;
+  double get shortestSide => size.shortestSide;
 
-  double dynamicShortSize(double value) => shortSize * value;
-  double dynamicLongSize(double value) => longSize * value;
+  ///
+  ///
+  double dynamicShortSize(double value) => shortestSide * value;
+  double dynamicLongSize(double value) => longestSide * value;
   //
   double dynamicHeight(double value) => height * value;
   double dynamicWidth(double value) => width * value;
@@ -74,6 +108,22 @@ extension MediaQueryExtension on BuildContext {
   Brightness get appBrightness => mediaQuery.platformBrightness;
 }
 
+// Device Screen Type By Width(300-600-900)
+// Values from https://flutter.dev/docs/development/ui/layout/building-adaptive-apps
+extension ResponsiveScreenExtension on BuildContext {
+  ResponsivityConstants get _const => ResponsivityConstants.instance;
+  //
+  double get smallScreenSize => _const.smallScreenSize.toDouble();
+  double get mediumScreenSize => _const.mediumScreenSize.toDouble();
+  double get largeScreenSize => _const.largeScreenSize.toDouble();
+  double get hugeScreenSize => _const.hugeScreenSize.toDouble();
+
+  bool get widthSmall => width >= smallScreenSize && width < mediumScreenSize;
+  bool get widthMedium => width >= mediumScreenSize && width < largeScreenSize;
+  bool get widthLarge => width >= largeScreenSize && width < hugeScreenSize;
+  bool get widthHuge => width >= hugeScreenSize;
+}
+
 extension DeviceOSExtension on BuildContext {
   bool get isAndroid => Platform.isAndroid;
   bool get isIOS => Platform.isIOS;
@@ -92,27 +142,8 @@ extension OrientationExtension on BuildContext {
 
 extension ColorExtension on BuildContext {
   MaterialColor get randomColor => Colors.primaries[17.randomValue];
-}
-
-// Device Screen Type By Width(300-600-900)
-// Values from https://flutter.dev/docs/development/ui/layout/building-adaptive-apps
-extension ContextDeviceTypeExtension on BuildContext {
-  bool get isDesktop =>
-      width > ResponsivityConstants.instance.mediumScreenSize ? true : false;
-  bool get isSmallScreen =>
-      width < ResponsivityConstants.instance.smallScreenSize ? true : false;
-  bool get isNormalyScreen =>
-      width >= ResponsivityConstants.instance.smallScreenSize &&
-              width < ResponsivityConstants.instance.mediumScreenSize
-          ? true
-          : false;
-  bool get isMediumScreen =>
-      width >= ResponsivityConstants.instance.mediumScreenSize &&
-              width < ResponsivityConstants.instance.largeScreenSize
-          ? true
-          : false;
-  bool get isLargeScreen =>
-      width >= ResponsivityConstants.instance.largeScreenSize ? true : false;
+  LinearGradient get randomGradient =>
+      LinearGradient(colors: [randomColor, randomColor]);
 }
 
 extension DurationExtension on BuildContext {

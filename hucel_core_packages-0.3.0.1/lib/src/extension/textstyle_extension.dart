@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension TextStyleExtension on TextStyle {
+extension TextStyleCopyWithExtension on TextStyle {
   TextStyle get coBoldBlack => copyWith(
         fontWeight: FontWeight.bold,
         color: Colors.black,

@@ -12,7 +12,12 @@ class ExpandedStreamBuilder extends Expanded {
           key: expandKey,
           flex: flex,
           child: StreamBuilder(
-            builder: builder,
+            builder: (context, snapshot) {
+              return streamBuilderHelper(
+                snapshot: snapshot,
+                context: context,
+              );
+            },
             stream: stream,
             initialData: initialData,
             key: key,
@@ -20,7 +25,35 @@ class ExpandedStreamBuilder extends Expanded {
         );
 }
 
-Widget StreamBuilderHelper({
+class CustomStreamBuilder extends StreamBuilder {
+  CustomStreamBuilder({
+    Key? key,
+    required Widget Function(BuildContext, AsyncSnapshot<dynamic>) builder,
+    String? initialData,
+    Stream<dynamic>? stream,
+    Widget? hasError,
+    Widget? connectionNone,
+    Widget? connectionWaiting,
+    Widget? connectionActive,
+    Widget? connectionDone,
+  }) : super(
+            key: key,
+            stream: stream,
+            initialData: initialData,
+            builder: (context, snapshot) {
+              return streamBuilderHelper(
+                snapshot: snapshot,
+                context: context,
+                connectionActive: connectionActive,
+                connectionDone: connectionDone,
+                connectionNone: connectionNone,
+                connectionWaiting: connectionWaiting,
+                hasError: hasError,
+              );
+            });
+}
+
+Widget streamBuilderHelper({
   required AsyncSnapshot<dynamic> snapshot,
   required BuildContext context,
   Widget? hasError,

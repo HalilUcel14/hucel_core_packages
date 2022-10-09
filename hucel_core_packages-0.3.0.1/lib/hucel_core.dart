@@ -111,8 +111,8 @@ export 'src/widget/stream_builder_helper.dart';
 export 'src/widget/network_connectivity_widget.dart';
 export 'src/widget/clickable_container.dart';
 export 'src/widget/custom_material_app.dart';
-export 'src/widget/fittedbox_text.dart';
-export 'src/widget/web_app_for_materialapp.dart';
+export 'src/widget/response/fittedbox_text.dart';
+
 //
 
 // ###---< Vandad Tips >---###

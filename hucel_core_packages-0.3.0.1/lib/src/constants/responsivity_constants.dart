@@ -11,4 +11,5 @@ class ResponsivityConstants {
   final smallScreenSize = 300;
   final mediumScreenSize = 600;
   final largeScreenSize = 900;
+  final hugeScreenSize = 1200;
 }
