@@ -10,6 +10,8 @@ extension ContextThemeExtension on BuildContext {
   Color get backgroundColor => theme.backgroundColor;
   TextTheme get primaryTextTheme => theme.primaryTextTheme;
   ColorScheme get colorSheme => theme.colorScheme;
+
+  Brightness get appBrightness => mediaQuery.platformBrightness;
 }
 
 extension TextStyleExtension on BuildContext {
@@ -104,8 +106,7 @@ extension MediaQueryExtension on BuildContext {
   double get widthXL => width * 0.08;
   double get widthXXL => width * 0.1;
   //
-  bool get isKeyboardOpen => mediaQuery.viewInsets.bottom > 0;
-  Brightness get appBrightness => mediaQuery.platformBrightness;
+
 }
 
 // Device Screen Type By Width(300-600-900)
@@ -164,6 +165,14 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get padAllXL => EdgeInsets.all(heightXL);
   EdgeInsets get padAllXXL => EdgeInsets.all(heightXXL);
   //
+  EdgeInsetsGeometry get allPad => widthHuge
+      ? padAllM
+      : widthLarge
+          ? padAllN
+          : widthMedium
+              ? padAllS
+              : padAllXS;
+  //
   EdgeInsets get padHorizontalXS => EdgeInsets.symmetric(horizontal: heightXS);
   EdgeInsets get padHorizontalS => EdgeInsets.symmetric(horizontal: heightS);
   EdgeInsets get padHorizontalN => EdgeInsets.symmetric(horizontal: heightN);
@@ -173,6 +182,14 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get padHorizontalXXL =>
       EdgeInsets.symmetric(horizontal: heightXXL);
   //
+  EdgeInsetsGeometry get responsiveHorizontalPad => widthHuge
+      ? padHorizontalM
+      : widthLarge
+          ? padHorizontalN
+          : widthMedium
+              ? padHorizontalS
+              : padHorizontalXS;
+  //
   EdgeInsets get padVerticalXS => EdgeInsets.symmetric(vertical: heightXS);
   EdgeInsets get padVerticalS => EdgeInsets.symmetric(vertical: heightS);
   EdgeInsets get padVerticalN => EdgeInsets.symmetric(vertical: heightN);
@@ -180,6 +197,14 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get padVerticalL => EdgeInsets.symmetric(vertical: heightL);
   EdgeInsets get padVerticalXL => EdgeInsets.symmetric(vertical: heightXL);
   EdgeInsets get padVerticalXXL => EdgeInsets.symmetric(vertical: heightXXL);
+  //
+  EdgeInsetsGeometry get responsiveVerticalPad => widthHuge
+      ? padVerticalM
+      : widthLarge
+          ? padVerticalN
+          : widthMedium
+              ? padVerticalS
+              : padVerticalXS;
 }
 
 extension SizedBoxExtension on BuildContext {
@@ -214,27 +239,57 @@ extension SizedBoxExtension on BuildContext {
       SpaceSizedHeightBox(context: this, height: heightXXL);
 }
 
-extension RadiusExtension on BuildContext {
-  Radius get radiusXS => Radius.circular(widthXS);
-  Radius get radiusS => Radius.circular(widthS);
-  Radius get radiusN => Radius.circular(widthN);
-  Radius get radiusM => Radius.circular(widthM);
-  Radius get radiusL => Radius.circular(widthL);
-  Radius get radiusXL => Radius.circular(widthXL);
-  Radius get radiusXXL => Radius.circular(widthXXL);
-}
-
-extension BorderExtension on BuildContext {
-  BorderRadius get borderRadiusXS => BorderRadius.all(Radius.circular(widthXS));
-  BorderRadius get borderRadiusS => BorderRadius.all(Radius.circular(widthS));
-  BorderRadius get borderRadiusN => BorderRadius.all(Radius.circular(widthN));
-  BorderRadius get borderRadiusM => BorderRadius.all(Radius.circular(widthM));
-  BorderRadius get borderRadiusL => BorderRadius.all(Radius.circular(widthL));
-  BorderRadius get borderRadiusXL => BorderRadius.all(Radius.circular(widthXL));
-  BorderRadius get borderRadiusXXL =>
-      BorderRadius.all(Radius.circular(widthXXL));
+extension BorderRadiusExtension on BuildContext {
+  Radius get radiusXS => Radius.circular(heightXS);
+  Radius get radiusS => Radius.circular(heightS);
+  Radius get radiusN => Radius.circular(heightN);
+  Radius get radiusM => Radius.circular(heightM);
+  Radius get radiusL => Radius.circular(heightL);
+  Radius get radiusXL => Radius.circular(heightXL);
+  Radius get radiusXXL => Radius.circular(heightXXL);
   //
+  BorderRadius borderRadiusAllDynamic(Radius value) => BorderRadius.all(value);
+  //
+  BorderRadius get borderRadiusAllXS => borderRadiusAllDynamic(radiusXS);
+  BorderRadius get borderRadiusAllS => borderRadiusAllDynamic(radiusS);
+  BorderRadius get borderRadiusAllN => borderRadiusAllDynamic(radiusN);
+  BorderRadius get borderRadiusAllM => borderRadiusAllDynamic(radiusM);
+  BorderRadius get borderRadiusAllL => borderRadiusAllDynamic(radiusL);
+  BorderRadius get borderRadiusAllXL => borderRadiusAllDynamic(radiusXL);
+  BorderRadius get borderRadiusAllXXL => borderRadiusAllDynamic(radiusXXL);
+  //
+  //
+  BorderRadius borderRadiusTopDynamic(Radius value) =>
+      BorderRadius.only(topLeft: value, topRight: value);
+  //
+  BorderRadius get borderRadiusTopXS => borderRadiusTopDynamic(radiusXS);
+  BorderRadius get borderRadiusTopS => borderRadiusTopDynamic(radiusS);
+  BorderRadius get borderRadiusTopN => borderRadiusTopDynamic(radiusN);
+  BorderRadius get borderRadiusTopM => borderRadiusTopDynamic(radiusM);
+  BorderRadius get borderRadiusTopL => borderRadiusTopDynamic(radiusL);
+  BorderRadius get borderRadiusTopXL => borderRadiusTopDynamic(radiusXL);
+  BorderRadius get borderRadiusTopXXL => borderRadiusTopDynamic(radiusXXL);
+  //
+  BorderRadius borderRadiusBottomDynamic(Radius value) =>
+      BorderRadius.only(bottomLeft: value, bottomRight: value);
+  //
+  BorderRadius get borderRadiusBottomXS => borderRadiusBottomDynamic(radiusXS);
+  BorderRadius get borderRadiusBottomS => borderRadiusBottomDynamic(radiusS);
+  BorderRadius get borderRadiusBottomN => borderRadiusBottomDynamic(radiusN);
+  BorderRadius get borderRadiusBottomM => borderRadiusBottomDynamic(radiusM);
+  BorderRadius get borderRadiusBottomL => borderRadiusBottomDynamic(radiusL);
+  BorderRadius get borderRadiusBottomXL => borderRadiusBottomDynamic(radiusXL);
+  BorderRadius get borderRadiusBottomXXL =>
+      borderRadiusBottomDynamic(radiusXXL);
 
+  //
+  BorderRadius get responsiveBorderRadiusAll => widthHuge
+      ? borderRadiusAllM
+      : widthLarge
+          ? borderRadiusAllN
+          : widthMedium
+              ? borderRadiusAllS
+              : borderRadiusAllXS;
 }
 
 extension NavigationExtension on BuildContext {
@@ -372,8 +427,9 @@ extension SnackbarContextExtension on BuildContext {
       );
 }
 
-extension RemoveCurrentSnacbar on BuildContext {
+extension FunctionOnContext on BuildContext {
   void get removeSnackbar => ScaffoldMessenger.of(this).removeCurrentSnackBar();
+  bool get isKeyboardOpen => mediaQuery.viewInsets.bottom > 0;
 }
 
 extension GetArgument on BuildContext {

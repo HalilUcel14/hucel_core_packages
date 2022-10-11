@@ -149,7 +149,7 @@ class _SnackBarChilds extends StatelessWidget {
       margin: EdgeInsets.only(top: context.heightN),
       decoration: decoration ??
           BoxDecoration(
-            borderRadius: context.borderRadiusN,
+            borderRadius: context.borderRadiusAllN,
             color: decorationColor ?? Colors.orange,
             boxShadow: const [
               BoxShadow(

@@ -24,6 +24,7 @@ export 'src/constants/easy_locale_constants.dart';
 //
 // ###---< enum >---###
 export 'src/enum/text_form_field.dart';
+export 'src/enum/aspect_ratio_enum.dart';
 //
 // ###---< exception >---###
 export 'src/exception/error_widget_builder.dart';
@@ -102,17 +103,27 @@ export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
 export 'src/feature/firebase/firestore/firestore_get_downloadurl.dart';
 //
 // ###---< Widget >---###
-
+// // lottie
+export 'src/widget/lottie/animated_lottie_builder.dart';
+// // rebuild_widget
+export 'src/widget/rebuild_widget/column_widget.dart';
+export 'src/widget/rebuild_widget/container_widget.dart';
+export 'src/widget/rebuild_widget/row_widget.dart';
+// // response
+export 'src/widget/response/aspect_raito_container.dart';
+export 'src/widget/response/expanded_aspect_ratio.dart';
+export 'src/widget/response/fittedbox_text.dart';
+export 'src/widget/response/multi_builder.dart';
+export 'src/widget/response/responsive_width_container.dart';
+// //
+export 'src/widget/clickable_container.dart';
+export 'src/widget/custom_material_app.dart';
+export 'src/widget/error_snackbar.dart';
+export 'src/widget/network_connectivity_widget.dart';
 export 'src/widget/random_color_container.dart';
 export 'src/widget/random_image.dart';
 export 'src/widget/space_sized_box.dart';
-export 'src/widget/error_snackbar.dart';
 export 'src/widget/stream_builder_helper.dart';
-export 'src/widget/network_connectivity_widget.dart';
-export 'src/widget/clickable_container.dart';
-export 'src/widget/custom_material_app.dart';
-export 'src/widget/response/fittedbox_text.dart';
-
 //
 
 // ###---< Vandad Tips >---###
