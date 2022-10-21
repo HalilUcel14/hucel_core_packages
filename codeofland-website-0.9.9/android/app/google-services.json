@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "794573244493",
+    "project_id": "codeofland-web",
+    "storage_bucket": "codeofland-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794573244493:android:ec35227ddcf303f422f404",
+        "android_client_info": {
+          "package_name": "com.example.codeofland_website"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794573244493-bvboqvlgm58h815278kcer6c0st48ndp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU98Y8HCEqs5VMGDiF6YXRLOX7XDfo4Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794573244493-bvboqvlgm58h815278kcer6c0st48ndp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "794573244493-ftf0n0g984hsk50tdvd01mlng8rame5u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.codeoflandWebsite"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

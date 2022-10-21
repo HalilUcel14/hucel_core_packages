@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+
+class CustomElevatedButton extends ElevatedButton {
+  const CustomElevatedButton({
+    Key? key,
+    required void Function()? onPressed,
+    void Function()? onLongPress,
+    void Function(bool)? onHover,
+    void Function(bool)? onFocusChange,
+    CustomButtonStyle? style,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Clip clipBehavior = Clip.none,
+    required Widget? child,
+  }) : super(
+          key: key,
+          onPressed: onPressed,
+          child: child,
+          autofocus: autofocus,
+          clipBehavior: clipBehavior,
+          focusNode: focusNode,
+          onFocusChange: onFocusChange,
+          onHover: onHover,
+          onLongPress: onLongPress,
+          style: style,
+        );
+}
+
+class CustomButtonStyle extends ButtonStyle {
+  CustomButtonStyle({
+    Color? backgroundColor,
+    Color? foregroundColor,
+    Color? overlayColor,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    MouseCursor? mouseCursor,
+    EdgeInsetsGeometry? padding,
+    Size? fixedSize,
+    Size? maximumSize,
+    Size? minimumSize,
+    double? elevation,
+    VisualDensity? visualDensity,
+    MaterialTapTargetSize? tapTargetSize,
+    TextStyle? textStyle,
+    Duration? animationDuration,
+    bool? enableFeedback,
+    AlignmentGeometry? alignment,
+    InteractiveInkFeatureFactory? splashFactory,
+  }) : super(
+          alignment: alignment,
+          visualDensity: visualDensity,
+          animationDuration: animationDuration,
+          enableFeedback: enableFeedback,
+          tapTargetSize: tapTargetSize,
+          splashFactory: splashFactory,
+          backgroundColor: MaterialStateProperty.all(backgroundColor),
+          elevation: MaterialStateProperty.all(elevation),
+          fixedSize: MaterialStateProperty.all(fixedSize),
+          foregroundColor: MaterialStateProperty.all(foregroundColor),
+          maximumSize: MaterialStateProperty.all(maximumSize),
+          minimumSize: MaterialStateProperty.all(minimumSize),
+          mouseCursor: MaterialStateProperty.all(mouseCursor),
+          overlayColor: MaterialStateProperty.all(overlayColor),
+          padding: MaterialStateProperty.all(padding),
+          shadowColor: MaterialStateProperty.all(shadowColor),
+          shape: MaterialStateProperty.all(shape),
+          side: MaterialStateProperty.all(side),
+          surfaceTintColor: MaterialStateProperty.all(surfaceTintColor),
+          textStyle: MaterialStateProperty.all(textStyle),
+        );
+}
