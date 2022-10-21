@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import 'core/firebase/auth_service.dart';
 import 'core/routes/app_routes.dart';
+
 import 'core/theme/theme_dark.dart';
 import 'core/theme/theme_light.dart';
 import 'firebase_options.dart';

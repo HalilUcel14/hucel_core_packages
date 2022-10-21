@@ -8,6 +8,7 @@ class ThemeDark implements IApplicationTheme {
     return _instance!;
   }
 
+//
   ThemeDark._init();
 
   @override
