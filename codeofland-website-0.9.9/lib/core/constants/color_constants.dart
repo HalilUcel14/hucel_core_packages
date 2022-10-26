@@ -12,4 +12,6 @@ class ColorConstant {
 
   static Color backgroundBlueColor = '1877f2'.color;
   static Color backgroundWhiteColor = Colors.white;
+  static Color primaryColor = Colors.amber;
+  static Color blogFieldColor = Colors.green;
 }

@@ -3,6 +3,7 @@ import 'package:hucel_core/hucel_core.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../core/constants/localization_const.dart';
+import '../../../core/extension/button_extension.dart';
 import '../../../core/extension/context_extension.dart';
 import '../../../core/extension/style_extension.dart';
 import '../../../core/widget/custom_elevated_button.dart';
@@ -20,7 +21,7 @@ class FirstRegion extends StatelessWidget {
           widthFactor: 0.7,
           textCenter: true,
           text: LocalizationConst.madeByUcelsoft,
-          style: context.responsiveTextHeadLine.coBoldWhite,
+          style: context.responsiveHugeHeadLine.coBoldWhite,
         ),
         //
         FractionallySizedBox(
@@ -35,14 +36,17 @@ class FirstRegion extends StatelessWidget {
           textCenter: true,
           textAlign: TextAlign.center,
           text: LocalizationConst.firtRegionSubTitle,
-          style: context.responsiveHeadLine.color(Colors.white),
+          style: context.responsiveNormalHeadline.color(Colors.white),
         ),
         //
         SizedBox(height: context.height * 0.01),
         //
         ElevatedButton(
           onPressed: () {},
-          style: CustomButtonStyle(fixedSize: const Size(160, 42)),
+          style: CustomButtonStyle().size(
+            minimum: ElevatedButtonSize.normal.size,
+            fixed: Size(context.width * 0.12, context.height * 0.064),
+          ),
           child: Text(
             'Get Started',
             style: context.buttonTextStyle.coBold,

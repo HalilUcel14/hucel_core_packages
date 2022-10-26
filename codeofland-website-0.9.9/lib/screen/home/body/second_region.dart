@@ -1,4 +1,5 @@
 import 'package:codeofland_website/core/widget/project/response_text.dart';
+import 'package:codeofland_website/screen/home/second_region_blog_body.dart';
 import 'package:flutter/material.dart';
 import 'package:hucel_core/hucel_core.dart';
 
@@ -18,10 +19,23 @@ class SecondRegion extends StatelessWidget {
         spacing: 24,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          sectionTitle(context),
-          title(context),
-          child(context),
+          SpaceSizedHeightBox(context: context, height: 0.1),
+          //       sectionTitle(context),
+          //title(context),
+          const SecondRegionBlogBody(),
         ],
+      ),
+    );
+  }
+
+//
+  Widget sectionTitle(BuildContext context) {
+    return FittedBoxText(
+      'BLOG',
+      alignment: Alignment.topLeft,
+      style: context.headline4?.coBold.size(
+        context.widthN,
+        minSize: 24,
       ),
     );
   }
@@ -35,26 +49,7 @@ class SecondRegion extends StatelessWidget {
     );
   }
 
-  Widget sectionTitle(BuildContext context) {
-    return FittedBoxText(
-      'BLOG',
-      alignment: Alignment.topLeft,
-      style: context.headline6?.coBold.size(
-        context.widthN,
-        minSize: 24,
-      ),
-    );
-  }
-
   //
-  Widget title_blog(BuildContext context) {
-    return Center(
-      child: FittedBoxText(
-        'Blog Title Name',
-        style: context.responsiveHeadLine.coBold,
-      ),
-    );
-  }
 
   Container child(BuildContext context) {
     return Container(
@@ -114,6 +109,15 @@ class SecondRegion extends StatelessWidget {
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Widget title_blog(BuildContext context) {
+    return Center(
+      child: FittedBoxText(
+        'Blog Title Name',
+        style: context.responsiveAllHeadLine.coBold,
       ),
     );
   }

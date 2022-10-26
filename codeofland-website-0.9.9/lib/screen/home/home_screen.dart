@@ -1,5 +1,6 @@
 import 'package:codeofland_website/core/constants/kDefault_constants.dart';
 import 'package:codeofland_website/screen/home/body/second_region.dart';
+import 'package:codeofland_website/screen/home/body/third_region.dart';
 import 'package:flutter/material.dart';
 import 'package:hucel_core/hucel_core.dart';
 
@@ -52,6 +53,7 @@ class HomeScreen extends StatelessWidget {
         const FirstRegion(),
         appBarSize,
         const SecondRegion(),
+        const ThirdRegion(),
         const SizedBox(height: 5000)
         // HomeScreenOnePage(),
         // LastPostedBlog(),

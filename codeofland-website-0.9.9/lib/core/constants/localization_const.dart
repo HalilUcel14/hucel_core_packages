@@ -20,6 +20,8 @@ class LocalizationConst {
   String goProject = 'Go Projects';
   String goBlog = 'Go Blog';
 
+  String blogTitleName = 'Blog Title Name';
+
   static List<String> customAppBarList = [
     'Home',
     'About Us',

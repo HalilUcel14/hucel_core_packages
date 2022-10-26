@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hucel_core/hucel_core.dart';
 
-import '../../../core/constants/kDefault_constants.dart';
 import '../../../core/enum/blog_page_enum.dart';
 
 class SharedBlogPage extends StatelessWidget {
@@ -15,7 +14,7 @@ class SharedBlogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     _context = context;
     List<Widget> childBlog = [];
-    childBlog.add(SizedBox(height: KDefaultConst.appBarSize));
+    childBlog.add(const SizedBox(height: 16));
     for (var element in blogMap) {
       switch (element.blogEnum) {
         case BlogPageEnum.title:
@@ -79,8 +78,8 @@ class SharedBlogPage extends StatelessWidget {
         horizontal: _context.width * 0.02,
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: _context.width * 0.01,
-        vertical: _context.width * 0.01,
+        horizontal: _context.width * 0.1,
+        vertical: _context.width * 0.1,
       ),
       width: double.infinity,
       decoration: const BoxDecoration(
