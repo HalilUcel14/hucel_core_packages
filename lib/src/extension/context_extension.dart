@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hucel_core/src/init/utility/platform_detail.dart';
 
 import '../../hucel_core.dart';
 
@@ -118,6 +119,8 @@ extension ResponsiveScreenExtension on BuildContext {
   double get mediumScreenSize => _const.mediumScreenSize.toDouble();
   double get largeScreenSize => _const.largeScreenSize.toDouble();
   double get hugeScreenSize => _const.hugeScreenSize.toDouble();
+  double get widthSize1500 => _const.sizeWidth1500.toDouble();
+  double get widthSize1800 => _const.sizeWidth1800.toDouble();
 
   bool get widthSmall => width >= smallScreenSize && width < mediumScreenSize;
   bool get widthMedium => width >= mediumScreenSize && width < largeScreenSize;
@@ -126,13 +129,14 @@ extension ResponsiveScreenExtension on BuildContext {
 }
 
 extension DeviceOSExtension on BuildContext {
-  bool get isAndroid => Platform.isAndroid;
-  bool get isIOS => Platform.isIOS;
-  bool get isWindows => Platform.isWindows;
-  bool get isLinux => Platform.isLinux;
-  bool get isMacOS => Platform.isMacOS;
-  bool get isMobile => isAndroid || isIOS;
-  bool get isDesktopWeb => isWindows || isLinux || isMacOS;
+  PlatformDetails get currentPlatform => PlatformDetails.internal();
+  // bool get isAndroid => Platform.isAndroid;
+  // bool get isIOS => Platform.isIOS;
+  // bool get isWindows => Platform.isWindows;
+  // bool get isLinux => Platform.isLinux;
+  // bool get isMacOS => Platform.isMacOS;
+  // bool get isMobile => isAndroid || isIOS;
+  // bool get isDesktopWeb => isWindows || isLinux || isMacOS;
 }
 
 extension OrientationExtension on BuildContext {
@@ -143,7 +147,7 @@ extension OrientationExtension on BuildContext {
 
 extension ColorExtension on BuildContext {
   MaterialColor get randomColor => Colors.primaries[17.randomValue];
-  LinearGradient get randomGradient =>
+  LinearGradient get randomGradientColor =>
       LinearGradient(colors: [randomColor, randomColor]);
 }
 
@@ -165,7 +169,7 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get padAllXL => EdgeInsets.all(heightXL);
   EdgeInsets get padAllXXL => EdgeInsets.all(heightXXL);
   //
-  EdgeInsetsGeometry get allPad => widthHuge
+  EdgeInsetsGeometry get responsiveAllPad => widthHuge
       ? padAllM
       : widthLarge
           ? padAllN
@@ -327,108 +331,19 @@ extension SharedContextExtension on BuildContext {
       sharedManager.setBoolValue(_isOnboardShowed, true);
 }
 
-extension SnackbarContextExtension on BuildContext {
-  ScaffoldFeatureController snackbar({
-    required List<String> errorList,
-    Key? snackbarKey,
-    Key? mainBodyKey,
-    double snackbarElevations = 0.0,
-    SnackBarBehavior? snackBarBehavior = SnackBarBehavior.floating,
-    SnackBarAction? snackbarAction,
-    Animation<double>? snackbarAnimation,
-    Clip snackbarClipBehavior = Clip.hardEdge,
-    EdgeInsetsGeometry? snackbarMargin,
-    void Function()? snackbaronVisible,
-    EdgeInsetsGeometry? snackbarPadding,
-    ShapeBorder? snackbarShape,
-    double? snackbarWidth,
-    DismissDirection snackbarDismissDirection = DismissDirection.down,
-    Decoration? mainBodyDecoration,
-    TextStyle? errorTextStyle,
-    Color? mainBodyDecorationColor,
-    String? labelChar,
-    String? labelText,
-    TextStyle? labelTextStyle,
-    TextStyle? labelCharStyle,
-  }) =>
-      ScaffoldMessenger.of(this).showSnackBar(
-        ErrorSnackbars(
-          errorTextStyle: errorTextStyle,
-          labelChar: labelChar,
-          labelCharStyle: labelCharStyle,
-          labelText: labelText,
-          labelTextStyle: labelTextStyle,
-          mainBodyDecoration: mainBodyDecoration,
-          mainBodyDecorationColor: mainBodyDecorationColor,
-          mainBodyKey: mainBodyKey,
-          snackBarBehavior: snackBarBehavior,
-          snackbarAction: snackbarAction,
-          snackbarAnimation: snackbarAnimation,
-          snackbarClipBehavior: snackbarClipBehavior,
-          snackbarDismissDirection: snackbarDismissDirection,
-          snackbarElevations: snackbarElevations,
-          snackbarKey: snackbarKey,
-          snackbarMargin: snackbarMargin,
-          snackbarPadding: snackbarPadding,
-          snackbarShape: snackbarShape,
-          snackbarWidth: snackbarWidth,
-          snackbaronVisible: snackbaronVisible,
-          errorList: errorList,
-        ),
-      );
+extension ScaffoldMessengerOfContextExtension on BuildContext {
+  ScaffoldMessengerState get _messenger => ScaffoldMessenger.of(this);
 
-  ScaffoldFeatureController snackbarWithError({
-    required List<String> errorList,
-    Key? snackbarKey,
-    Key? mainBodyKey,
-    double snackbarElevations = 0.0,
-    SnackBarBehavior? snackBarBehavior = SnackBarBehavior.floating,
-    SnackBarAction? snackbarAction,
-    Animation<double>? snackbarAnimation,
-    Clip snackbarClipBehavior = Clip.hardEdge,
-    EdgeInsetsGeometry? snackbarMargin,
-    void Function()? snackbaronVisible,
-    EdgeInsetsGeometry? snackbarPadding,
-    ShapeBorder? snackbarShape,
-    double? snackbarWidth,
-    DismissDirection snackbarDismissDirection = DismissDirection.down,
-    Decoration? mainBodyDecoration,
-    TextStyle? errorTextStyle,
-    Color? mainBodyDecorationColor,
-    String? labelChar,
-    String? labelText,
-    TextStyle? labelTextStyle,
-    TextStyle? labelCharStyle,
-  }) =>
-      ScaffoldMessenger.of(this).showSnackBar(
-        ErrorSnackbars.error(
-          errorTextStyle: errorTextStyle,
-          labelChar: labelChar,
-          labelCharStyle: labelCharStyle,
-          labelText: labelText,
-          labelTextStyle: labelTextStyle,
-          mainBodyDecoration: mainBodyDecoration,
-          mainBodyDecorationColor: mainBodyDecorationColor,
-          mainBodyKey: mainBodyKey,
-          snackBarBehavior: snackBarBehavior,
-          snackbarAction: snackbarAction,
-          snackbarAnimation: snackbarAnimation,
-          snackbarClipBehavior: snackbarClipBehavior,
-          snackbarDismissDirection: snackbarDismissDirection,
-          snackbarElevations: snackbarElevations,
-          snackbarKey: snackbarKey,
-          snackbarMargin: snackbarMargin,
-          snackbarPadding: snackbarPadding,
-          snackbarShape: snackbarShape,
-          snackbarWidth: snackbarWidth,
-          snackbaronVisible: snackbaronVisible,
-          errorList: errorList,
-        ),
-      );
+  showSnackbar(SnackBar snack) => _messenger.showSnackBar(snack);
+  showBanner(MaterialBanner banner) => _messenger.showMaterialBanner(banner);
+  get removeCurrentSnackbar => _messenger.removeCurrentSnackBar();
+  get hideCurrentSnackbar => _messenger.hideCurrentSnackBar();
+  get clearCurrentSnackbar => _messenger.clearSnackBars();
+  get removeCurrentBanner => _messenger.removeCurrentMaterialBanner();
+  get clearCurrentBaner => _messenger.clearMaterialBanners();
 }
 
 extension FunctionOnContext on BuildContext {
-  void get removeSnackbar => ScaffoldMessenger.of(this).removeCurrentSnackBar();
   bool get isKeyboardOpen => mediaQuery.viewInsets.bottom > 0;
 }
 

@@ -23,6 +23,7 @@ export 'src/constants/responsivity_constants.dart';
 export 'src/constants/easy_locale_constants.dart';
 //
 // ###---< enum >---###
+export 'src/enum/current_time_enum.dart';
 export 'src/enum/text_form_field.dart';
 export 'src/enum/aspect_ratio_enum.dart';
 //
@@ -36,7 +37,6 @@ export 'src/exception/network_connectivity_exception.dart';
 export 'src/extension/another_extension.dart';
 export 'src/extension/async_extension.dart';
 export 'src/extension/context_extension.dart';
-export 'src/extension/decoration_extension.dart';
 export 'src/extension/file_extension.dart';
 export 'src/extension/future_extension.dart';
 export 'src/extension/image_extension.dart';
@@ -65,11 +65,12 @@ export 'src/init/navigation/navigation_service.dart';
 //
 // ###---< init - utility >---###
 export 'src/init/utility/custom_logger.dart';
-export 'src/init/utility/show_snackbar.dart';
 export 'src/init/utility/device_utility.dart';
+export 'src/init/utility/platform_detail.dart';
+//
 export 'src/init/utility/page_animation/slider_route.dart';
 //
-// ###---< init - utility >---###
+// ###---< init - network >---###
 export 'src/init/network/network_connectivity_manager.dart';
 //
 // ###---< init - theme >---###
@@ -89,18 +90,22 @@ export 'src/mixin/form_field_mixin.dart';
 //
 // ###---< Models >---###
 export 'src/models/local_file_model.dart';
+export 'src/models/firebase_user_model.dart';
 //
 // ###---< Tools >---###
+export 'src/tools/default_input_decoration.dart';
 export 'src/tools/web_scroll_behaviour.dart';
+
+//
+// ###---< Feature >---###
+// [ Firebase ]
+export 'src/feature/firebase/auth/firebase_auth_service.dart';
+export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
+export 'src/feature/firebase/firestore/firestore_get_downloadurl.dart';
 //
 // ###---< Function >---###
 export 'src/function/exception_mode.dart';
 export 'src/function/log_function.dart';
-//
-// ###---< Firebase >---###
-export 'src/feature/firebase/auth/firebase_auth_service.dart';
-export 'src/feature/firebase/documentation/cloudfirestore_documentation.dart';
-export 'src/feature/firebase/firestore/firestore_get_downloadurl.dart';
 //
 // ###---< Widget >---###
 // // lottie
@@ -118,12 +123,14 @@ export 'src/widget/response/responsive_width_container.dart';
 // //
 export 'src/widget/clickable_container.dart';
 export 'src/widget/custom_material_app.dart';
+export 'src/widget/dissmiss_keyboard_dedector.dart';
 export 'src/widget/error_snackbar.dart';
 export 'src/widget/network_connectivity_widget.dart';
 export 'src/widget/random_color_container.dart';
 export 'src/widget/random_image.dart';
 export 'src/widget/space_sized_box.dart';
 export 'src/widget/stream_builder_helper.dart';
+
 //
 
 // ###---< Vandad Tips >---###
